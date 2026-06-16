@@ -1,0 +1,137 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <clipPath id="clip"><rect width="800" height="500"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+
+  <!-- Page background -->
+  <rect width="800" height="500" fill="#f8fafc"/>
+
+  <!-- Top notification bar -->
+  <rect width="800" height="28" fill="#0f172a"/>
+  <text x="400" y="19" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#f97316" text-anchor="middle" font-weight="500">📍 Entrega para todo o Brasil</text>
+
+  <!-- Nav bar -->
+  <rect y="28" width="800" height="52" fill="#ffffff"/>
+  <rect y="79" width="800" height="1" fill="#e2e8f0"/>
+  <!-- SK orange logo box -->
+  <rect x="16" y="37" width="38" height="34" rx="9" fill="#f97316"/>
+  <text x="35" y="58" font-family="system-ui,-apple-system,sans-serif" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle">SK</text>
+  <!-- Search bar background -->
+  <rect x="68" y="40" width="564" height="28" rx="14" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="88" y="58" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="#94a3b8">Buscar produtos...</text>
+  <!-- Orange search button (right end of bar) -->
+  <rect x="604" y="40" width="28" height="28" rx="0 14 14 0" fill="#f97316"/>
+  <text x="618" y="58" font-family="system-ui,-apple-system,sans-serif" font-size="13" text-anchor="middle" fill="#ffffff">🔍</text>
+  <!-- Icons right -->
+  <text x="656" y="60" font-family="system-ui,-apple-system,sans-serif" font-size="20">👤</text>
+  <text x="696" y="60" font-family="system-ui,-apple-system,sans-serif" font-size="20">🛒</text>
+  <text x="736" y="60" font-family="system-ui,-apple-system,sans-serif" font-size="20">☰</text>
+
+  <!-- Hero (dark) -->
+  <rect y="80" width="800" height="196" fill="#1e293b"/>
+  <rect y="80" width="800" height="196" fill="url(#hg)" opacity="0.5"/>
+  <!-- left glow -->
+  <circle cx="100" cy="178" r="140" fill="#f97316" opacity="0.06"/>
+
+  <!-- Hero tag -->
+  <rect x="36" y="102" width="158" height="22" rx="11" fill="rgba(249,115,22,0.2)" stroke="#f97316" stroke-width="0.8"/>
+  <text x="46" y="117" font-family="system-ui,-apple-system,sans-serif" font-size="10.5" fill="#f97316" font-weight="600" letter-spacing="0.3">Eletrônicos em Oferta</text>
+
+  <!-- Hero H1 -->
+  <text x="36" y="152" font-family="system-ui,-apple-system,sans-serif" font-size="25" font-weight="800" fill="#ffffff" letter-spacing="-0.5">Tecnologia ao Seu Alcance</text>
+  <!-- Orange accent line -->
+  <text x="36" y="178" font-family="system-ui,-apple-system,sans-serif" font-size="19" font-weight="700" fill="#f97316">até 30% OFF</text>
+
+  <!-- CTA buttons -->
+  <rect x="36" y="190" width="148" height="34" rx="17" fill="#f97316"/>
+  <text x="110" y="211" font-family="system-ui,-apple-system,sans-serif" font-size="11.5" font-weight="700" fill="#ffffff" text-anchor="middle">Comprar Agora →</text>
+  <rect x="196" y="190" width="120" height="34" rx="17" fill="transparent" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/>
+  <text x="256" y="211" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="rgba(255,255,255,0.8)" text-anchor="middle">Ver Catálogo</text>
+
+  <!-- Hero right: laptop visual -->
+  <rect x="540" y="92" width="230" height="172" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(249,115,22,0.2)" stroke-width="1"/>
+  <text x="655" y="185" font-family="system-ui,-apple-system,sans-serif" font-size="60" text-anchor="middle">💻</text>
+  <rect x="560" y="100" width="100" height="7" rx="3" fill="rgba(249,115,22,0.3)"/>
+  <rect x="560" y="113" width="70" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+
+  <!-- Carousel dots -->
+  <circle cx="383" cy="266" r="5" fill="#f97316"/>
+  <circle cx="398" cy="266" r="4" fill="rgba(255,255,255,0.25)"/>
+  <circle cx="413" cy="266" r="4" fill="rgba(255,255,255,0.25)"/>
+
+  <!-- Benefits strip -->
+  <rect y="276" width="800" height="58" fill="#ffffff"/>
+  <rect y="333" width="800" height="1" fill="#e2e8f0"/>
+  <!-- benefit 1 -->
+  <text x="44" y="298" font-family="system-ui,-apple-system,sans-serif" font-size="16">🚚</text>
+  <text x="66" y="296" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="700" fill="#1e293b">Frete Grátis</text>
+  <text x="66" y="308" font-family="system-ui,-apple-system,sans-serif" font-size="9" fill="#94a3b8">Acima de R$ 299</text>
+  <line x1="196" y1="286" x2="196" y2="322" stroke="#e2e8f0" stroke-width="0.8"/>
+  <!-- benefit 2 -->
+  <text x="212" y="298" font-family="system-ui,-apple-system,sans-serif" font-size="16">🛡️</text>
+  <text x="234" y="296" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="700" fill="#1e293b">Compra Segura</text>
+  <text x="234" y="308" font-family="system-ui,-apple-system,sans-serif" font-size="9" fill="#94a3b8">100% protegida</text>
+  <line x1="390" y1="286" x2="390" y2="322" stroke="#e2e8f0" stroke-width="0.8"/>
+  <!-- benefit 3 -->
+  <text x="406" y="298" font-family="system-ui,-apple-system,sans-serif" font-size="16">🔄</text>
+  <text x="428" y="296" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="700" fill="#1e293b">Troca Fácil</text>
+  <text x="428" y="308" font-family="system-ui,-apple-system,sans-serif" font-size="9" fill="#94a3b8">Até 30 dias</text>
+  <line x1="580" y1="286" x2="580" y2="322" stroke="#e2e8f0" stroke-width="0.8"/>
+  <!-- benefit 4 -->
+  <text x="596" y="298" font-family="system-ui,-apple-system,sans-serif" font-size="16">🎧</text>
+  <text x="618" y="296" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="700" fill="#1e293b">Suporte 24h</text>
+  <text x="618" y="308" font-family="system-ui,-apple-system,sans-serif" font-size="9" fill="#94a3b8">Sempre disponível</text>
+
+  <!-- Categories section -->
+  <rect y="334" width="800" height="166" fill="#f8fafc"/>
+  <text x="36" y="358" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="700" fill="#1e293b">Comprar por Categoria</text>
+  <text x="764" y="358" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#f97316" text-anchor="end">Ver todas →</text>
+
+  <!-- 8 category icons row (x spacing = 96) -->
+  <!-- Eletrônicos - blue -->
+  <rect x="36" y="366" width="52" height="52" rx="12" fill="#3b82f6"/>
+  <text x="62" y="397" font-family="system-ui,-apple-system,sans-serif" font-size="22" text-anchor="middle">💻</text>
+  <text x="62" y="430" font-family="system-ui,-apple-system,sans-serif" font-size="8" fill="#475569" text-anchor="middle">Eletrônicos</text>
+  <!-- Moda - purple -->
+  <rect x="132" y="366" width="52" height="52" rx="12" fill="#8b5cf6"/>
+  <text x="158" y="397" font-family="system-ui,-apple-system,sans-serif" font-size="22" text-anchor="middle">👕</text>
+  <text x="158" y="430" font-family="system-ui,-apple-system,sans-serif" font-size="8" fill="#475569" text-anchor="middle">Moda</text>
+  <!-- Casa & Jardim - green -->
+  <rect x="228" y="366" width="52" height="52" rx="12" fill="#22c55e"/>
+  <text x="254" y="397" font-family="system-ui,-apple-system,sans-serif" font-size="22" text-anchor="middle">🏠</text>
+  <text x="254" y="430" font-family="system-ui,-apple-system,sans-serif" font-size="8" fill="#475569" text-anchor="middle">Casa &amp; Jardim</text>
+  <!-- Esportes - orange -->
+  <rect x="324" y="366" width="52" height="52" rx="12" fill="#f97316"/>
+  <text x="350" y="397" font-family="system-ui,-apple-system,sans-serif" font-size="22" text-anchor="middle">⚽</text>
+  <text x="350" y="430" font-family="system-ui,-apple-system,sans-serif" font-size="8" fill="#475569" text-anchor="middle">Esportes</text>
+  <!-- Beleza - pink -->
+  <rect x="420" y="366" width="52" height="52" rx="12" fill="#ec4899"/>
+  <text x="446" y="397" font-family="system-ui,-apple-system,sans-serif" font-size="22" text-anchor="middle">💄</text>
+  <text x="446" y="430" font-family="system-ui,-apple-system,sans-serif" font-size="8" fill="#475569" text-anchor="middle">Beleza</text>
+  <!-- Livros - teal -->
+  <rect x="516" y="366" width="52" height="52" rx="12" fill="#14b8a6"/>
+  <text x="542" y="397" font-family="system-ui,-apple-system,sans-serif" font-size="22" text-anchor="middle">📚</text>
+  <text x="542" y="430" font-family="system-ui,-apple-system,sans-serif" font-size="8" fill="#475569" text-anchor="middle">Livros</text>
+  <!-- Brinquedos - amber -->
+  <rect x="612" y="366" width="52" height="52" rx="12" fill="#f59e0b"/>
+  <text x="638" y="397" font-family="system-ui,-apple-system,sans-serif" font-size="22" text-anchor="middle">🧸</text>
+  <text x="638" y="430" font-family="system-ui,-apple-system,sans-serif" font-size="8" fill="#475569" text-anchor="middle">Brinquedos</text>
+  <!-- Alimentos - red -->
+  <rect x="708" y="366" width="52" height="52" rx="12" fill="#ef4444"/>
+  <text x="734" y="397" font-family="system-ui,-apple-system,sans-serif" font-size="22" text-anchor="middle">🥗</text>
+  <text x="734" y="430" font-family="system-ui,-apple-system,sans-serif" font-size="8" fill="#475569" text-anchor="middle">Alimentos</text>
+
+  <!-- Ofertas do Dia strip -->
+  <rect y="447" width="800" height="53" fill="#ffffff"/>
+  <rect y="447" width="800" height="1" fill="#e2e8f0"/>
+  <text x="36" y="472" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="700" fill="#1e293b">🔥 Ofertas do Dia</text>
+  <text x="764" y="472" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#f97316" text-anchor="end">Ver todas →</text>
+  <!-- Product card hints -->
+  <rect x="36" y="480" width="110" height="14" rx="4" fill="#f1f5f9"/>
+  <rect x="158" y="480" width="110" height="14" rx="4" fill="#f1f5f9"/>
+  <rect x="280" y="480" width="110" height="14" rx="4" fill="#f1f5f9"/>
+  <rect x="402" y="480" width="110" height="14" rx="4" fill="#f1f5f9"/>
+
+  </g>
+</svg>
