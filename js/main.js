@@ -235,7 +235,7 @@
 
 /* ── Active nav link on scroll ── */
 (function initActiveNav() {
-  const sections = ['services','portfolio','pricing','coming-soon','stack','contact'];
+  const sections = ['services','portfolio','pricing','quote','stack','coming-soon','contact'];
   const links = document.querySelectorAll('.nav-link');
 
   function onScroll() {
@@ -368,4 +368,259 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       message:    form.querySelector('[name="message"]').value
     }).catch(console.error);
   });
+})();
+
+
+/* ── Custom cursor ── */
+(function initCursor() {
+  if ('ontouchstart' in window) return;
+  const dot  = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  if (!dot || !ring) return;
+
+  document.body.classList.add('cursor-active');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  window.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top  = my + 'px';
+  });
+
+  (function animRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(animRing);
+  })();
+
+  document.querySelectorAll('a, button, .service-card, .project-card, .quote-type, .quote-feat').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+  });
+})();
+
+
+/* ── Back to top ── */
+(function initBackToTop() {
+  const btn = document.getElementById('backTop');
+  if (!btn) return;
+  window.addEventListener('scroll', () => btn.classList.toggle('show', window.scrollY > 400), { passive: true });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
+
+
+/* ── LGPD cookie banner ── */
+(function initLGPD() {
+  const bar = document.getElementById('lgpdBar');
+  const ok  = document.getElementById('lgpdOk');
+  const no  = document.getElementById('lgpdNo');
+  if (!bar) return;
+  if (localStorage.getItem('sk-lgpd')) return;
+  setTimeout(() => bar.classList.add('show'), 2000);
+  function dismiss() {
+    bar.classList.remove('show');
+    localStorage.setItem('sk-lgpd', '1');
+  }
+  ok && ok.addEventListener('click', dismiss);
+  no && no.addEventListener('click', dismiss);
+})();
+
+
+/* ── Form real-time validation ── */
+(function initValidation() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  function validate(input) {
+    const grp = input.closest('.form-group');
+    const err = grp && grp.querySelector('.field-error');
+    if (!grp) return true;
+    grp.classList.remove('f-error', 'f-ok');
+    if (err) err.textContent = '';
+    if (input.required && !input.value.trim()) {
+      grp.classList.add('f-error');
+      if (err) err.textContent = 'Campo obrigatório.';
+      return false;
+    }
+    if (input.type === 'email' && input.value.trim()) {
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) {
+        grp.classList.add('f-error');
+        if (err) err.textContent = 'Informe um e-mail válido.';
+        return false;
+      }
+    }
+    if (input.value.trim()) grp.classList.add('f-ok');
+    return true;
+  }
+
+  form.querySelectorAll('input, textarea').forEach(inp => {
+    inp.addEventListener('blur', () => validate(inp));
+    inp.addEventListener('input', () => {
+      if (inp.closest('.form-group').classList.contains('f-error')) validate(inp);
+    });
+  });
+})();
+
+
+/* ── 3D tilt on service cards ── */
+(function initTilt() {
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - 0.5;
+      const y = (e.clientY - r.top)  / r.height - 0.5;
+      card.style.transform = `perspective(700px) rotateX(${-y * 9}deg) rotateY(${x * 9}deg) translateZ(8px)`;
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  });
+})();
+
+
+/* ── Portfolio modal ── */
+(function initPortfolioModal() {
+  const overlay  = document.getElementById('pmOverlay');
+  const bodyEl   = document.getElementById('pmBody');
+  const closeBtn = document.getElementById('pmClose');
+  if (!overlay) return;
+
+  const PROJECTS = {
+    clinic: {
+      title: 'Clínica Escola FUMEC', badge: 'Healthcare', badgeClass: 'healthcare',
+      stack: ['HTML5', 'CSS3', 'JavaScript'],
+      live: 'https://asilk3037-source.github.io/trabalho_fumec_clinica',
+      code: 'https://github.com/asilk3037-source/trabalho_fumec_clinica',
+      desc: 'Site institucional para a Clínica Escola FUMEC com foco em acessibilidade e clareza de informação. Apresenta serviços médicos, equipe, horários de atendimento e canal de contato. Projeto otimizado para SEO e carregamento rápido.',
+      highlights: ['Design clean e acessível', 'Seção de especialidades médicas', 'Formulário de contato integrado', 'SEO técnico otimizado'],
+      previewClass: 'clinic-preview', heroBg: 'clinic-bg'
+    },
+    realestate: {
+      title: 'Nosso Lar Imóveis', badge: 'Imóveis', badgeClass: 'realestate',
+      stack: ['HTML5', 'CSS3', 'JavaScript'],
+      live: 'https://asilk3037-source.github.io/nosso-lar',
+      code: 'https://github.com/asilk3037-source/nosso-lar',
+      desc: 'Plataforma para imobiliária com catálogo de imóveis, galeria de fotos por propriedade e formulário de agendamento de visitas. Design profissional pensado para converter visitantes em leads qualificados.',
+      highlights: ['Catálogo de imóveis dinâmico', 'Galeria de fotos por propriedade', 'Filtros de busca avançados', 'Formulário de agendamento de visitas'],
+      previewClass: 'realestate-preview', heroBg: 'realestate-bg'
+    },
+    portfolio: {
+      title: 'SK Services', badge: 'Portfólio', badgeClass: 'portfolio',
+      stack: ['HTML5', 'CSS3', 'JavaScript'],
+      live: null,
+      code: 'https://github.com/asilk3037-source/Sk-Services',
+      desc: 'Portfólio profissional desenvolvido do zero com HTML, CSS e JavaScript puro. Canvas API com partículas interativas, dark/light mode, loader animado, calculadora de orçamento interativa e SEO técnico completo.',
+      highlights: ['Canvas API com partículas interativas', 'Dark/light mode com localStorage', 'Calculadora de orçamento interativa', 'robots.txt + sitemap.xml + SEO'],
+      previewClass: 'portfolio-preview', heroBg: 'dark-bg'
+    }
+  };
+
+  function openModal(key) {
+    const p = PROJECTS[key];
+    if (!p) return;
+    const liveBtn = p.live
+      ? `<a href="${p.live}" target="_blank" class="btn-primary">Abrir site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg></a>`
+      : `<span class="pm-here">✓ Você está aqui</span>`;
+
+    bodyEl.innerHTML = `
+      <div class="pm-preview ${p.previewClass}">
+        <div class="pm-mock-wrap">
+          <div class="browser-chrome">
+            <div class="browser-bar">
+              <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+            </div>
+            <div class="browser-body ${p.previewClass}">
+              <div class="mock-nav"></div>
+              <div class="mock-hero ${p.heroBg}"><div class="mock-title"></div><div class="mock-sub"></div></div>
+              <div class="mock-cards"><div class="mock-card"></div><div class="mock-card"></div><div class="mock-card"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pm-info">
+        <div class="pm-badges">
+          <span class="tech-badge ${p.badgeClass}">${p.badge}</span>
+          ${p.stack.map(t => `<span class="tech-badge">${t}</span>`).join('')}
+        </div>
+        <h2 class="pm-title">${p.title}</h2>
+        <p class="pm-desc">${p.desc}</p>
+        <ul class="pm-highlights">
+          ${p.highlights.map(h => `<li><span class="highlight-check">✓</span> ${h}</li>`).join('')}
+        </ul>
+        <div class="pm-actions">
+          ${liveBtn}
+          <a href="${p.code}" target="_blank" class="btn-secondary">Ver código</a>
+        </div>
+      </div>`;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.project-card[data-project]').forEach(card => {
+    card.addEventListener('click', e => {
+      if (!e.target.closest('a')) openModal(card.dataset.project);
+    });
+  });
+
+  closeBtn && closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+})();
+
+
+/* ── Quote calculator ── */
+(function initQuoteCalc() {
+  const totalEl   = document.getElementById('quoteTotal');
+  const breakdownEl = document.getElementById('quoteBreakdown');
+  const ctaEl     = document.getElementById('quoteCTA');
+  if (!totalEl) return;
+
+  let basePrice = 497, baseLabel = 'Landing Page';
+
+  function fmt(n) { return n.toLocaleString('pt-BR'); }
+
+  function update() {
+    let extras = 0;
+    const lines = [];
+    document.querySelectorAll('.quote-feat input:checked').forEach(inp => {
+      const add = parseInt(inp.dataset.add) || 0;
+      extras += add;
+      lines.push({ label: inp.dataset.label, val: add });
+    });
+    const total = basePrice + extras;
+    totalEl.textContent = fmt(total);
+
+    let html = `<div class="qr-line qr-base"><span>${baseLabel}</span><span>R$ ${fmt(basePrice)}</span></div>`;
+    lines.forEach(l => {
+      html += `<div class="qr-line"><span>${l.label}</span><span>+ R$ ${fmt(l.val)}</span></div>`;
+    });
+    if (extras > 0) {
+      html += `<div class="qr-line qr-total-line"><span>Total estimado</span><span>R$ ${fmt(total)}</span></div>`;
+    }
+    breakdownEl.innerHTML = html;
+
+    if (ctaEl) {
+      const ext = lines.length ? ' + ' + lines.map(l => l.label).join(', ') : '';
+      const msg = `Olá! Calculei meu orçamento pelo site: ${baseLabel}${ext} — estimativa R$ ${fmt(total)}. Gostaria de um orçamento personalizado!`;
+      ctaEl.href = `https://wa.me/5531992914959?text=${encodeURIComponent(msg)}`;
+    }
+  }
+
+  document.querySelectorAll('.quote-type').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.quote-type').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      basePrice = parseInt(btn.dataset.base) || 497;
+      baseLabel = btn.dataset.label || 'Projeto';
+      update();
+    });
+  });
+
+  document.querySelectorAll('.quote-feat input').forEach(inp => inp.addEventListener('change', update));
+  update();
 })();
