@@ -301,3 +301,71 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
+
+
+/* ── Loader ── */
+(function initLoader() {
+  const loader = document.getElementById('loader');
+  if (!loader) return;
+  const hide = () => loader.classList.add('done');
+  if (document.readyState === 'complete') setTimeout(hide, 1400);
+  else window.addEventListener('load', () => setTimeout(hide, 1400));
+})();
+
+
+/* ── Theme toggle (dark/light) ── */
+(function initTheme() {
+  const btn  = document.getElementById('themeToggle');
+  if (!btn) return;
+  if (localStorage.getItem('sk-theme') === 'light') document.body.classList.add('light');
+  btn.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+    localStorage.setItem('sk-theme', document.body.classList.contains('light') ? 'light' : 'dark');
+  });
+})();
+
+
+/* ── FAQ accordion ── */
+(function initFAQ() {
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item   = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-answer').style.height = '0';
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.height = answer.scrollHeight + 'px';
+      }
+    });
+  });
+})();
+
+
+/* ── EmailJS integration ──
+   Para ativar:
+   1. Crie conta em emailjs.com
+   2. Conecte seu Gmail como serviço de email
+   3. Crie um template com as variáveis: from_name, from_email, service, message
+   4. Substitua os três valores abaixo pelos seus IDs reais
+*/
+(function initEmailJS() {
+  const KEY      = 'SUA_PUBLIC_KEY';
+  const SERVICE  = 'SUA_SERVICE_ID';
+  const TEMPLATE = 'SEU_TEMPLATE_ID';
+  if (KEY === 'SUA_PUBLIC_KEY' || typeof emailjs === 'undefined') return;
+  emailjs.init(KEY);
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+  form.addEventListener('submit', () => {
+    emailjs.send(SERVICE, TEMPLATE, {
+      from_name:  form.querySelector('[name="name"]').value,
+      from_email: form.querySelector('[name="email"]').value,
+      service:    form.querySelector('[name="service"]').value,
+      message:    form.querySelector('[name="message"]').value
+    }).catch(console.error);
+  });
+})();
