@@ -1403,6 +1403,9 @@ input, textarea, select {
 }
 @keyframes loader-prog { to { width: 100%; } }
 
+/* ── Nav Right ── */
+.nav-right { display: flex; align-items: center; gap: 8px; }
+
 /* ── Theme Toggle ── */
 .theme-toggle {
   width: 36px; height: 36px;
