@@ -3,166 +3,218 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LUMÉ – Moda que define você</title>
+  <title>LUMÉ – Moda que define<br><em>quem você é</em></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Space Grotesk',sans-serif;background:#fafafa;color:#18181b;overflow-x:hidden}
+    body{font-family:'Space Grotesk',sans-serif;background:#f8f8f8;color:#1a1a1a;overflow-x:hidden}
 
-    .sk-badge{position:fixed;top:0;left:0;right:0;background:rgba(24,24,27,0.95);color:#a1a1aa;text-align:center;padding:8px;font-size:0.75rem;z-index:9999}
-    .sk-badge a{color:#a1a1aa;text-decoration:none;font-weight:600;transition:color 0.2s}
-    .sk-badge a:hover{color:#fff}
+    /* SK badge */
+    .sk-badge{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,0.92);color:#aaa;text-align:center;padding:8px 16px;font-size:0.72rem;z-index:9999;display:flex;align-items:center;justify-content:center;gap:12px}
+    .sk-badge a{color:#1a1a1a;text-decoration:none;font-weight:600;transition:opacity .2s}
+    .sk-badge a:hover{opacity:.75}
 
+    /* Nav */
     nav{position:fixed;top:32px;left:0;right:0;z-index:1000;padding:0 5%}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:16px 28px;background:rgba(250,250,250,0.92);backdrop-filter:blur(14px);border-radius:0;border-bottom:1px solid rgba(24,24,27,0.1)}
-    .logo{font-size:1.6rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#18181b}
-    .nav-links{display:flex;gap:28px;list-style:none}
-    .nav-links a{color:rgba(24,24,27,0.55);text-decoration:none;font-size:0.85rem;font-weight:400;letter-spacing:1px;text-transform:uppercase;transition:color 0.2s}
-    .nav-links a:hover{color:#18181b}
-    .nav-cta{background:#18181b;color:#fafafa!important;padding:10px 22px;font-weight:500!important;letter-spacing:1px;transition:background 0.2s!important}
-    .nav-cta:hover{background:#3f3f46!important}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:14px 28px;background:rgba(255,255,255,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:14px;border:1px solid rgba(0,0,0,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.15)}
+    .logo{font-size:1.35rem;font-weight:700;letter-spacing:-0.5px;color:#1a1a1a}
+    .logo em{font-style:normal;color:#1a1a1a}
+    .nav-links{display:flex;gap:26px;list-style:none}
+    .nav-links a{color:rgba(0,0,0,0.5);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:#1a1a1a}
+    .nav-cta{background:#1a1a1a;color:#fff!important;padding:10px 22px;border-radius:8px;font-weight:700!important;transition:filter .2s!important}
+    .nav-cta:hover{filter:brightness(1.12)!important}
 
-    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:140px 24px 80px;position:relative;overflow:hidden;background:#fafafa}
-    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 50%,rgba(24,24,27,0.04) 0%,transparent 70%)}
-    .hero-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-    .hero-left{}
-    .hero-season{font-size:0.75rem;font-weight:300;letter-spacing:3px;text-transform:uppercase;color:rgba(24,24,27,0.4);margin-bottom:16px}
-    .hero h1{font-size:clamp(2.8rem,5vw,4.5rem);font-weight:700;line-height:1.05;margin-bottom:20px;letter-spacing:-2px;color:#18181b}
-    .hero-tagline{font-size:1.1rem;font-weight:300;color:rgba(24,24,27,0.5);line-height:1.7;margin-bottom:36px;max-width:400px}
-    .hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
-    .btn-primary{background:#18181b;color:#fafafa;padding:14px 32px;font-weight:500;font-size:0.95rem;text-decoration:none;transition:all 0.25s;letter-spacing:0.5px}
-    .btn-primary:hover{background:#3f3f46;transform:translateY(-2px)}
-    .btn-outline{background:transparent;color:#18181b;padding:14px 32px;font-weight:500;font-size:0.95rem;text-decoration:none;border:1px solid rgba(24,24,27,0.25);transition:all 0.25s;letter-spacing:0.5px}
-    .btn-outline:hover{border-color:#18181b;transform:translateY(-2px)}
-    .hero-perks{display:flex;gap:28px;flex-wrap:wrap}
-    .perk{display:flex;align-items:center;gap:8px;font-size:0.82rem;color:rgba(24,24,27,0.45);font-weight:400}
-    .perk-dot{width:6px;height:6px;border-radius:50%;background:#18181b;opacity:0.3}
-    .hero-right{position:relative}
-    .hero-img-placeholder{width:100%;aspect-ratio:3/4;background:linear-gradient(160deg,#e4e4e7 0%,#f4f4f5 50%,#e4e4e7 100%);border-radius:2px;display:flex;align-items:center;justify-content:center}
-    .hero-img-label{font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:rgba(24,24,27,0.3)}
-    .hero-img-badge{position:absolute;bottom:24px;left:-20px;background:#18181b;color:#fafafa;padding:12px 18px;font-size:0.78rem;font-weight:500;letter-spacing:0.5px}
+    /* Animations */
+    @keyframes pulse{0%{opacity:.55;transform:scale(1)}100%{opacity:1;transform:scale(1.12)}}
+    @keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+    @keyframes floatslow{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    @keyframes fadein{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes shimmer{0%{background-position:200% center}100%{background-position:-200% center}}
 
-    .services{padding:90px 5%;background:#fff}
+    /* Hero */
+    .hero{min-height:100vh;display:flex;align-items:center;padding:120px 5% 80px;position:relative;overflow:hidden;background:#f8f8f8}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 35% 50%,rgba(26,26,26,0.25) 0%,transparent 65%);animation:pulse 7s ease-in-out infinite alternate;pointer-events:none}
+    .hero::after{content:'';position:absolute;bottom:-100px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(26,26,26,0.12) 0%,transparent 60%);pointer-events:none}
+    .hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+    .hero-left{animation:fadein .8s ease both}
+    .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(26,26,26,0.12);border:1px solid rgba(26,26,26,0.30);color:#1a1a1a;padding:7px 18px;border-radius:24px;font-size:0.78rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:24px}
+    .hero h1{font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:700;line-height:1.1;letter-spacing:-1.5px;margin-bottom:18px}
+    .hero h1 em{font-style:normal;color:#1a1a1a}
+    .hero-sub{font-size:1.05rem;color:rgba(0,0,0,0.5);line-height:1.75;margin-bottom:36px;max-width:480px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+    .btn-primary{background:#1a1a1a;color:#fff;padding:14px 32px;border-radius:10px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .25s;box-shadow:0 4px 20px rgba(26,26,26,0.30)}
+    .btn-primary:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:0 8px 32px rgba(26,26,26,0.25)}
+    .btn-ghost{background:transparent;color:#1a1a1a;padding:14px 32px;border-radius:10px;font-weight:600;font-size:1rem;text-decoration:none;border:1.5px solid rgba(26,26,26,0.30);transition:all .25s}
+    .btn-ghost:hover{border-color:#1a1a1a;color:#1a1a1a;transform:translateY(-2px)}
+    .hero-perks{display:flex;gap:24px;flex-wrap:wrap}
+    .perk{display:flex;align-items:center;gap:8px;font-size:0.83rem;color:rgba(0,0,0,0.5)}
+    .perk-dot{width:7px;height:7px;border-radius:50%;background:#1a1a1a;opacity:.7}
+    .hero-right{animation:fadein .8s .2s ease both;display:flex;align-items:center;justify-content:center}
+
+    /* Stats strip */
+    .stats-strip{background:rgba(26,26,26,0.12);border-top:1px solid rgba(26,26,26,0.2);border-bottom:1px solid rgba(26,26,26,0.2);padding:32px 5%}
+    .stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-around;gap:20px;flex-wrap:wrap}
+    .stat{text-align:center;padding:0 20px}
+    .stat-num{font-size:2.2rem;font-weight:700;color:#1a1a1a;letter-spacing:-1px;line-height:1}
+    .stat-lbl{font-size:0.82rem;color:rgba(0,0,0,0.5);margin-top:6px;font-weight:400}
+
+    /* Services */
+    .services{padding:88px 5%;background:#fff}
     .services-inner{max-width:1200px;margin:0 auto}
-    .section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:20px}
-    .section-label{font-size:0.72rem;font-weight:400;letter-spacing:2.5px;text-transform:uppercase;color:rgba(24,24,27,0.4);margin-bottom:10px}
-    .section-title{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;letter-spacing:-0.5px;color:#18181b}
-    .view-all{font-size:0.82rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:rgba(24,24,27,0.5);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.2s}
-    .view-all:hover{color:#18181b}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px}
-    .card{background:#f4f4f5;padding:40px 32px;transition:all 0.3s;position:relative;overflow:hidden}
-    .card:hover{background:#e4e4e7}
-    .card-img{width:100%;height:200px;background:linear-gradient(135deg,#e4e4e7,#f4f4f5);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:3rem;margin-bottom:24px}
-    .card h3{font-size:1.1rem;font-weight:700;letter-spacing:-0.3px;margin-bottom:8px;color:#18181b}
-    .card p{color:rgba(24,24,27,0.5);font-size:0.88rem;line-height:1.7;margin-bottom:16px}
-    .card-link{font-size:0.78rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:#18181b;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap 0.2s}
+    .section-kicker{font-size:0.75rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#1a1a1a;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+    .section-kicker::before{content:'';width:28px;height:2px;background:#1a1a1a;border-radius:2px}
+    .section-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;letter-spacing:-0.5px;margin-bottom:14px;line-height:1.2}
+    .section-sub{color:rgba(0,0,0,0.5);font-size:0.95rem;max-width:500px;line-height:1.75;margin-bottom:56px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+    .card{background:rgba(0,0,0,0.03);border:1px solid rgba(26,26,26,0.2);border-radius:18px;padding:36px 28px;transition:all .3s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+    .card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 100% 0%,rgba(26,26,26,0.12),transparent 60%);opacity:0;transition:opacity .3s}
+    .card:hover{background:rgba(0,0,0,0.05);border-color:rgba(26,26,26,0.30);transform:translateY(-5px);box-shadow:0 16px 48px rgba(26,26,26,.12)}
+    .card:hover::before{opacity:1}
+    .card-icon{width:54px;height:54px;border-radius:14px;background:rgba(26,26,26,0.12);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px;flex-shrink:0}
+    .card h3{font-size:1.18rem;font-weight:700;margin-bottom:10px}
+    .card p{color:rgba(0,0,0,0.5);font-size:0.91rem;line-height:1.72;flex:1;margin-bottom:20px}
+    .card-badge{display:inline-block;background:rgba(26,26,26,0.12);color:#1a1a1a;border:1px solid rgba(26,26,26,0.30);font-size:0.73rem;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:16px}
+    .card-link{color:#1a1a1a;font-size:0.86rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap .2s;margin-top:auto}
     .card-link:hover{gap:10px}
 
-    footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(24,24,27,0.08);color:rgba(24,24,27,0.3);font-size:0.78rem;letter-spacing:0.5px}
-    footer strong{color:#18181b}
-    /* MOBILE RESPONSIVE */
-    @media (max-width: 720px) {
-      .sk-badge { font-size: 0.68rem; padding: 6px 8px; line-height: 1.4; }
-      nav { top: 28px; padding: 0 3%; }
-      .nav-inner { padding: 10px 16px; border-radius: 10px; }
-      .nav-links { display: none; }
-      .hero { padding: 100px 20px 56px; min-height: auto; }
-      .hero-content { grid-template-columns: 1fr !important; gap: 32px; }
-      .hero-right { display: none; }
-      .hero h1 { font-size: clamp(1.8rem, 8vw, 2.4rem) !important; }
-      .hero-sub, .hero-tagline { font-size: 0.95rem !important; }
-      .hero-btns { flex-direction: column; align-items: stretch; }
-      .hero-btns a, .btn-primary, .btn-outline { width: 100%; text-align: center; justify-content: center; }
-      .stats { gap: 20px; padding: 20px 16px; }
-      .stat-card { padding: 14px 16px; }
-      .cards { grid-template-columns: 1fr !important; }
-      .services { padding: 56px 5%; }
-      .section-header { flex-direction: column; gap: 12px; }
-      .section-right { max-width: 100%; }
-      .search-row { flex-direction: column; }
-      .search-btn { width: 100%; }
-      .trust-badges { flex-direction: column; }
-      .hero-perks { gap: 14px; }
+    /* CTA section */
+    .cta-sec{padding:88px 5%;background:linear-gradient(135deg,#f8f8f8 0%,#ffffff 100%);position:relative;overflow:hidden;text-align:center}
+    .cta-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(26,26,26,0.25) 0%,transparent 65%);pointer-events:none}
+    .cta-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+    .cta-kicker{font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#1a1a1a;margin-bottom:16px}
+    .cta-h{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-1px;margin-bottom:16px;line-height:1.15}
+    .cta-sub{font-size:1rem;color:rgba(0,0,0,0.5);line-height:1.7;margin-bottom:36px}
+    .btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:16px 36px;border-radius:12px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .25s;box-shadow:0 4px 20px rgba(37,211,102,.3)}
+    .btn-wa:hover{background:#1db954;transform:translateY(-2px);box-shadow:0 8px 32px rgba(37,211,102,.4)}
+    .btn-wa svg{width:22px;height:22px;fill:currentColor}
+
+    /* Footer */
+    footer{text-align:center;padding:36px 24px;border-top:1px solid rgba(26,26,26,0.15);color:rgba(0,0,0,0.25);font-size:0.8rem}
+    footer strong{color:#1a1a1a}
+    footer a{color:#1a1a1a;text-decoration:none}
+
+    /* Mobile */
+    @media (max-width:720px){
+      .sk-badge{font-size:.65rem;padding:6px 10px}
+      nav{top:28px;padding:0 3%}
+      .nav-inner{padding:10px 16px;border-radius:10px}
+      .nav-links{display:none}
+      .hero{padding:96px 5% 56px;min-height:auto}
+      .hero-inner{grid-template-columns:1fr;gap:32px}
+      .hero-right{display:none}
+      .hero h1{font-size:clamp(2rem,8vw,2.6rem)}
+      .hero-sub{font-size:.93rem}
+      .hero-btns{flex-direction:column}
+      .hero-btns a{text-align:center;justify-content:center}
+      .stats-inner{gap:8px}
+      .stat{padding:0 10px}
+      .stat-num{font-size:1.6rem}
+      .cards{grid-template-columns:1fr}
+      .services{padding:56px 5%}
+      .cta-sec{padding:56px 5%}
+      .hero-perks{gap:12px}
     }
   </style>
 </head>
 <body>
 
-<div class="sk-badge">Modelo criado por <a href="../index.html">SK Services</a> · <a href="../index.html#templates">← Ver todos os modelos</a></div>
+<div class="sk-badge">
+  <span>Modelo criado por <a href="../index.html">SK Services</a></span>
+  <span>·</span>
+  <a href="../index.html#templates">← Ver todos os modelos</a>
+</div>
 
 <nav>
   <div class="nav-inner">
-    <div class="logo">LUMÉ</div>
+    <div class="logo"><span style="letter-spacing:6px;font-size:1.5rem">LUMÉ</span></div>
     <ul class="nav-links">
-      <li><a href="#">Coleções</a></li>
-      <li><a href="#">Acessórios</a></li>
-      <li><a href="#">Essentials</a></li>
-      <li><a href="#">Sale</a></li>
-      <li><a href="#" class="nav-cta">Ver Coleção</a></li>
+      <li><a href="#">Coleções</a></li><li><a href="#">Acessórios</a></li><li><a href="#">Sale</a></li><li><a href="#">Sobre</a></li>
+      <li><a href="#" class="nav-cta">Nova Coleção</a></li>
     </ul>
   </div>
 </nav>
 
 <section class="hero">
-  <div class="hero-content">
+  <div class="hero-inner">
     <div class="hero-left">
-      <p class="hero-season">Coleção Primavera / Verão 2025</p>
-      <h1>A nova<br>coleção<br>chegou</h1>
-      <p class="hero-tagline">Peças que definem seu estilo com elegância atemporal e qualidade superior. Moda que é sua expressão.</p>
+      <div class="hero-tag">◆ Coleção Verão 2025</div>
+      <h1>Moda que define<br><em>quem você é</em></h1>
+      <p class="hero-sub">Peças atemporais com design contemporâneo, materiais selecionados e acabamento impecável. Vista-se com intenção.</p>
       <div class="hero-btns">
         <a href="#" class="btn-primary">Ver Coleção</a>
-        <a href="#" class="btn-outline">Novidades</a>
+        <a href="#" class="btn-ghost">Lookbook</a>
       </div>
       <div class="hero-perks">
-        <div class="perk"><span class="perk-dot"></span>Nova coleção</div>
-        <div class="perk"><span class="perk-dot"></span>Frete grátis acima de R$ 299</div>
-        <div class="perk"><span class="perk-dot"></span>Troca fácil em 30 dias</div>
+        <span class="perk"><span class="perk-dot"></span>Frete grátis acima R$299</span><span class="perk"><span class="perk-dot"></span>Troca em 30 dias</span><span class="perk"><span class="perk-dot"></span>Materiais sustentáveis</span>
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-img-placeholder">
-        <span class="hero-img-label">Coleção SS25</span>
-      </div>
-      <div class="hero-img-badge">Nova Coleção → Disponível agora</div>
+      <div style="width:100%;max-width:360px;animation:floatslow 5s ease-in-out infinite">
+  <div style="background:linear-gradient(135deg,#e8e8e8,#f4f4f4);border-radius:18px;height:280px;display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;border:1px solid rgba(26,26,26,0.12)">
+    <div style="position:absolute;bottom:16px;left:16px;right:16px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border-radius:10px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between">
+      <span style="font-size:.85rem;font-weight:600;color:rgba(255,255,255,0.9)">Coleção Verão 25</span>
+      <span style="background:#1a1a1a;color:#fff;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:6px">Novo</span>
+    </div>
+  </div>
+</div>
     </div>
   </div>
 </section>
 
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">5.000+</div><div class="stat-lbl">Clientes</div></div><div class="stat"><div class="stat-num">200+</div><div class="stat-lbl">Peças exclusivas</div></div><div class="stat"><div class="stat-num">4.9★</div><div class="stat-lbl">Avaliações</div></div><div class="stat"><div class="stat-num">3 dias</div><div class="stat-lbl">Entrega</div></div>
+  </div>
+</div>
+
 <section class="services">
   <div class="services-inner">
-    <div class="section-header">
-      <div>
-        <div class="section-label">Categorias</div>
-        <h2 class="section-title">Explore a coleção</h2>
-      </div>
-      <a href="#" class="view-all">Ver tudo →</a>
-    </div>
+    <p class="section-kicker">Novas Chegadas</p>
+    <h2 class="section-title">Curadoria para<br>todos os estilos</h2>
+    <p class="section-sub">Cada peça é selecionada por nossos curadores pensando em versatilidade, qualidade e estilo.</p>
     <div class="cards">
+      
       <div class="card">
-        <div class="card-img">👗</div>
-        <h3>Primavera / Verão</h3>
-        <p>Peças leves, coloridas e cheias de personalidade para os dias mais quentes. Tecidos premium que respiram com você.</p>
-        <a href="#" class="card-link">Explorar →</a>
+        <div class="card-icon">👗</div>
+        <h3>Roupas Femininas</h3>
+        <p>Peças versáteis que transitam do casual ao formal com elegância. Tecidos premium, cortes pensados para valorizar.</p>
+        <span class="card-badge">Casual · Formal · Festa</span>
+        <a href="#" class="card-link">Saiba mais →</a>
       </div>
       <div class="card">
-        <div class="card-img">👜</div>
+        <div class="card-icon">👔</div>
+        <h3>Roupas Masculinas</h3>
+        <p>Coleção masculina contemporânea com design limpo e acabamento de alfaiataria. Do básico ao sofisticado.</p>
+        <span class="card-badge">Slim · Regular · Premium</span>
+        <a href="#" class="card-link">Saiba mais →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">👜</div>
         <h3>Acessórios</h3>
-        <p>Bolsas, cintos, óculos e joias selecionadas para complementar qualquer look com o toque final perfeito.</p>
-        <a href="#" class="card-link">Explorar →</a>
-      </div>
-      <div class="card">
-        <div class="card-img">🤍</div>
-        <h3>Essentials</h3>
-        <p>Os básicos que nunca saem de moda. Peças versáteis e atemporais que formam a base de qualquer guarda-roupa elegante.</p>
-        <a href="#" class="card-link">Explorar →</a>
+        <p>Bolsas, cintos e joias que completam qualquer look. Peças de design exclusivo desenvolvidas por artesãos.</p>
+        <span class="card-badge">Bolsas · Joias · Cintos</span>
+        <a href="#" class="card-link">Saiba mais →</a>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="cta-inner">
+    <p class="cta-kicker">Pronto para começar?</p>
+    <h2 class="cta-h">Descubra sua próxima<br>peça favorita</h2>
+    <p class="cta-sub">Entre em contato pelo WhatsApp e receba atendimento personalizado para montar seu look.</p>
+    <a href="https://wa.me/5531992914959?text=Olá!%20Vi%20o%20modelo%20LUMÉ%20e%20quero%20um%20orçamento." class="btn-wa" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Quero este modelo
+    </a>
   </div>
 </section>
 
 <footer>
-  <p>© 2025 <strong>LUMÉ</strong>. Moda que define você. · Template por SK Services</p>
+  <p>© 2025 <strong>LUMÉ</strong> · Vista-se com intenção · Template por <a href="../index.html">SK Services</a></p>
 </footer>
 
 </body>

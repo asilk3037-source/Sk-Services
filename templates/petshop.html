@@ -3,188 +3,214 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PetCare – Porque eles merecem o melhor</title>
+  <title>PetCare – Porque eles merecem<br>o <em>melhor cuidado</em></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Space Grotesk',sans-serif;background:#fffbf8;color:#1c1917;overflow-x:hidden}
+    body{font-family:'Space Grotesk',sans-serif;background:#fff8f4;color:#1a1a1a;overflow-x:hidden}
 
-    .sk-badge{position:fixed;top:0;left:0;right:0;background:rgba(28,25,23,0.92);color:#a8a29e;text-align:center;padding:8px;font-size:0.75rem;z-index:9999}
-    .sk-badge a{color:#fb923c;text-decoration:none;font-weight:600}
-    .sk-badge a:hover{text-decoration:underline}
+    /* SK badge */
+    .sk-badge{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,0.92);color:#aaa;text-align:center;padding:8px 16px;font-size:0.72rem;z-index:9999;display:flex;align-items:center;justify-content:center;gap:12px}
+    .sk-badge a{color:#ea580c;text-decoration:none;font-weight:600;transition:opacity .2s}
+    .sk-badge a:hover{opacity:.75}
 
+    /* Nav */
     nav{position:fixed;top:32px;left:0;right:0;z-index:1000;padding:0 5%}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:14px 28px;background:rgba(255,251,248,0.92);backdrop-filter:blur(14px);border-radius:16px;border:1px solid rgba(234,88,12,0.12);box-shadow:0 2px 20px rgba(0,0,0,0.06)}
-    .logo{font-size:1.4rem;font-weight:700;color:#1c1917}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:14px 28px;background:rgba(255,255,255,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:14px;border:1px solid rgba(0,0,0,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.15)}
+    .logo{font-size:1.35rem;font-weight:700;letter-spacing:-0.5px;color:#1a1a1a}
     .logo em{font-style:normal;color:#ea580c}
-    .logo span{font-size:1.2rem}
-    .nav-links{display:flex;gap:24px;list-style:none}
-    .nav-links a{color:rgba(28,25,23,0.55);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s}
+    .nav-links{display:flex;gap:26px;list-style:none}
+    .nav-links a{color:rgba(0,0,0,0.5);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color .2s}
     .nav-links a:hover{color:#ea580c}
-    .nav-cta{background:#ea580c;color:#fff!important;padding:10px 22px;border-radius:10px;font-weight:700!important;transition:background 0.2s!important}
-    .nav-cta:hover{background:#c2410c!important}
+    .nav-cta{background:#ea580c;color:#fff!important;padding:10px 22px;border-radius:8px;font-weight:700!important;transition:filter .2s!important}
+    .nav-cta:hover{filter:brightness(1.12)!important}
 
-    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:140px 24px 80px;position:relative;overflow:hidden;background:linear-gradient(160deg,#fff7f0 0%,#fffbf8 50%,#fff 100%)}
-    .hero::before{content:'';position:absolute;right:-50px;top:80px;width:450px;height:450px;border-radius:50%;background:radial-gradient(circle,rgba(234,88,12,0.07) 0%,transparent 65%);pointer-events:none}
-    .hero::after{content:'';position:absolute;left:-80px;bottom:100px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(251,146,60,0.06) 0%,transparent 65%);pointer-events:none}
-    .hero-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-    .hero-left{}
-    .hero-tag{display:inline-flex;align-items:center;gap:8px;background:#fff1e8;border:1px solid rgba(234,88,12,0.2);color:#ea580c;padding:6px 16px;border-radius:20px;font-size:0.78rem;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:24px}
-    .hero h1{font-size:clamp(2.4rem,4.5vw,3.6rem);font-weight:700;line-height:1.12;margin-bottom:20px;color:#1c1917;letter-spacing:-1px}
+    /* Animations */
+    @keyframes pulse{0%{opacity:.55;transform:scale(1)}100%{opacity:1;transform:scale(1.12)}}
+    @keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+    @keyframes floatslow{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    @keyframes fadein{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes shimmer{0%{background-position:200% center}100%{background-position:-200% center}}
+
+    /* Hero */
+    .hero{min-height:100vh;display:flex;align-items:center;padding:120px 5% 80px;position:relative;overflow:hidden;background:#fff8f4}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 35% 50%,rgba(234,88,12,0.25) 0%,transparent 65%);animation:pulse 7s ease-in-out infinite alternate;pointer-events:none}
+    .hero::after{content:'';position:absolute;bottom:-100px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(234,88,12,0.12) 0%,transparent 60%);pointer-events:none}
+    .hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+    .hero-left{animation:fadein .8s ease both}
+    .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(234,88,12,0.12);border:1px solid rgba(234,88,12,0.30);color:#ea580c;padding:7px 18px;border-radius:24px;font-size:0.78rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:24px}
+    .hero h1{font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:700;line-height:1.1;letter-spacing:-1.5px;margin-bottom:18px}
     .hero h1 em{font-style:normal;color:#ea580c}
-    .hero-sub{font-size:1rem;color:rgba(28,25,23,0.5);line-height:1.75;margin-bottom:36px;max-width:460px}
+    .hero-sub{font-size:1.05rem;color:rgba(0,0,0,0.5);line-height:1.75;margin-bottom:36px;max-width:480px}
     .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
-    .btn-primary{background:#ea580c;color:#fff;padding:13px 28px;border-radius:10px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.25s;box-shadow:0 4px 18px rgba(234,88,12,0.25)}
-    .btn-primary:hover{background:#c2410c;transform:translateY(-2px);box-shadow:0 6px 24px rgba(234,88,12,0.35)}
-    .btn-outline{background:transparent;color:#1c1917;padding:13px 28px;border-radius:10px;font-weight:600;font-size:0.95rem;text-decoration:none;border:2px solid rgba(28,25,23,0.15);transition:all 0.25s}
-    .btn-outline:hover{border-color:#ea580c;color:#ea580c;transform:translateY(-2px)}
-    .trust-badges{display:flex;gap:16px;flex-wrap:wrap}
-    .badge{display:flex;align-items:center;gap:8px;background:#fff1e8;border-radius:8px;padding:8px 14px;font-size:0.82rem;font-weight:500;color:#78350f}
-    .badge-icon{font-size:1rem}
-    .hero-right{position:relative}
-    .hero-visual{width:100%;background:linear-gradient(135deg,#fff1e8,#ffe4c9);border-radius:24px;padding:36px;display:flex;flex-direction:column;gap:16px;box-shadow:0 8px 40px rgba(234,88,12,0.1)}
-    .pet-card{background:#fff;border-radius:14px;padding:18px;box-shadow:0 2px 12px rgba(0,0,0,0.06);display:flex;align-items:center;gap:14px}
-    .pet-avatar{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#fed7aa,#fdba74);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
-    .pet-info h4{font-size:0.9rem;font-weight:700;color:#1c1917;margin-bottom:3px}
-    .pet-info p{font-size:0.78rem;color:rgba(28,25,23,0.45)}
-    .pet-status{margin-left:auto;background:#dcfce7;color:#166534;font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:6px}
-    .stats-row{display:flex;gap:12px}
-    .mini-stat{flex:1;background:#fff;border-radius:10px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
-    .mini-num{font-size:1.3rem;font-weight:700;color:#ea580c}
-    .mini-label{font-size:0.72rem;color:rgba(28,25,23,0.4);margin-top:3px}
+    .btn-primary{background:#ea580c;color:#fff;padding:14px 32px;border-radius:10px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .25s;box-shadow:0 4px 20px rgba(234,88,12,0.30)}
+    .btn-primary:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:0 8px 32px rgba(234,88,12,0.25)}
+    .btn-ghost{background:transparent;color:#1a1a1a;padding:14px 32px;border-radius:10px;font-weight:600;font-size:1rem;text-decoration:none;border:1.5px solid rgba(234,88,12,0.30);transition:all .25s}
+    .btn-ghost:hover{border-color:#ea580c;color:#ea580c;transform:translateY(-2px)}
+    .hero-perks{display:flex;gap:24px;flex-wrap:wrap}
+    .perk{display:flex;align-items:center;gap:8px;font-size:0.83rem;color:rgba(0,0,0,0.5)}
+    .perk-dot{width:7px;height:7px;border-radius:50%;background:#ea580c;opacity:.7}
+    .hero-right{animation:fadein .8s .2s ease both;display:flex;align-items:center;justify-content:center}
 
-    .services{padding:90px 5%;background:#fff}
+    /* Stats strip */
+    .stats-strip{background:rgba(234,88,12,0.12);border-top:1px solid rgba(234,88,12,0.2);border-bottom:1px solid rgba(234,88,12,0.2);padding:32px 5%}
+    .stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-around;gap:20px;flex-wrap:wrap}
+    .stat{text-align:center;padding:0 20px}
+    .stat-num{font-size:2.2rem;font-weight:700;color:#ea580c;letter-spacing:-1px;line-height:1}
+    .stat-lbl{font-size:0.82rem;color:rgba(0,0,0,0.5);margin-top:6px;font-weight:400}
+
+    /* Services */
+    .services{padding:88px 5%;background:#fff}
     .services-inner{max-width:1200px;margin:0 auto}
-    .section-label{font-size:0.78rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#ea580c;margin-bottom:12px}
-    .section-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;letter-spacing:-0.5px;margin-bottom:14px;color:#1c1917}
-    .section-sub{color:rgba(28,25,23,0.45);font-size:0.95rem;max-width:460px;line-height:1.75;margin-bottom:52px}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-    .card{background:#fffbf8;border:1px solid rgba(234,88,12,0.1);border-radius:20px;padding:36px 28px;transition:all 0.3s;position:relative;overflow:hidden}
-    .card:hover{border-color:rgba(234,88,12,0.25);transform:translateY(-4px);box-shadow:0 12px 36px rgba(234,88,12,0.1)}
-    .card-icon{width:56px;height:56px;border-radius:16px;background:#fff1e8;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px}
-    .card h3{font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#1c1917}
-    .card p{color:rgba(28,25,23,0.5);font-size:0.9rem;line-height:1.7;margin-bottom:16px}
-    .card-price{font-size:0.85rem;color:#ea580c;font-weight:600}
-    .card-link{display:inline-flex;align-items:center;gap:6px;background:#ea580c;color:#fff;font-size:0.85rem;font-weight:600;padding:9px 18px;border-radius:8px;text-decoration:none;margin-top:12px;transition:background 0.2s}
-    .card-link:hover{background:#c2410c}
+    .section-kicker{font-size:0.75rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#ea580c;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+    .section-kicker::before{content:'';width:28px;height:2px;background:#ea580c;border-radius:2px}
+    .section-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;letter-spacing:-0.5px;margin-bottom:14px;line-height:1.2}
+    .section-sub{color:rgba(0,0,0,0.5);font-size:0.95rem;max-width:500px;line-height:1.75;margin-bottom:56px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+    .card{background:rgba(0,0,0,0.03);border:1px solid rgba(234,88,12,0.2);border-radius:18px;padding:36px 28px;transition:all .3s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+    .card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 100% 0%,rgba(234,88,12,0.12),transparent 60%);opacity:0;transition:opacity .3s}
+    .card:hover{background:rgba(0,0,0,0.05);border-color:rgba(234,88,12,0.30);transform:translateY(-5px);box-shadow:0 16px 48px rgba(234,88,12,.12)}
+    .card:hover::before{opacity:1}
+    .card-icon{width:54px;height:54px;border-radius:14px;background:rgba(234,88,12,0.12);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px;flex-shrink:0}
+    .card h3{font-size:1.18rem;font-weight:700;margin-bottom:10px}
+    .card p{color:rgba(0,0,0,0.5);font-size:0.91rem;line-height:1.72;flex:1;margin-bottom:20px}
+    .card-badge{display:inline-block;background:rgba(234,88,12,0.12);color:#ea580c;border:1px solid rgba(234,88,12,0.30);font-size:0.73rem;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:16px}
+    .card-link{color:#ea580c;font-size:0.86rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap .2s;margin-top:auto}
+    .card-link:hover{gap:10px}
 
-    footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(234,88,12,0.1);color:rgba(28,25,23,0.35);font-size:0.82rem}
+    /* CTA section */
+    .cta-sec{padding:88px 5%;background:linear-gradient(135deg,#fff8f4 0%,#ffffff 100%);position:relative;overflow:hidden;text-align:center}
+    .cta-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(234,88,12,0.25) 0%,transparent 65%);pointer-events:none}
+    .cta-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+    .cta-kicker{font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#ea580c;margin-bottom:16px}
+    .cta-h{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-1px;margin-bottom:16px;line-height:1.15}
+    .cta-sub{font-size:1rem;color:rgba(0,0,0,0.5);line-height:1.7;margin-bottom:36px}
+    .btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:16px 36px;border-radius:12px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .25s;box-shadow:0 4px 20px rgba(37,211,102,.3)}
+    .btn-wa:hover{background:#1db954;transform:translateY(-2px);box-shadow:0 8px 32px rgba(37,211,102,.4)}
+    .btn-wa svg{width:22px;height:22px;fill:currentColor}
+
+    /* Footer */
+    footer{text-align:center;padding:36px 24px;border-top:1px solid rgba(234,88,12,0.15);color:rgba(0,0,0,0.25);font-size:0.8rem}
     footer strong{color:#ea580c}
-    /* MOBILE RESPONSIVE */
-    @media (max-width: 720px) {
-      .sk-badge { font-size: 0.68rem; padding: 6px 8px; line-height: 1.4; }
-      nav { top: 28px; padding: 0 3%; }
-      .nav-inner { padding: 10px 16px; border-radius: 10px; }
-      .nav-links { display: none; }
-      .hero { padding: 100px 20px 56px; min-height: auto; }
-      .hero-content { grid-template-columns: 1fr !important; gap: 32px; }
-      .hero-right { display: none; }
-      .hero h1 { font-size: clamp(1.8rem, 8vw, 2.4rem) !important; }
-      .hero-sub, .hero-tagline { font-size: 0.95rem !important; }
-      .hero-btns { flex-direction: column; align-items: stretch; }
-      .hero-btns a, .btn-primary, .btn-outline { width: 100%; text-align: center; justify-content: center; }
-      .stats { gap: 20px; padding: 20px 16px; }
-      .stat-card { padding: 14px 16px; }
-      .cards { grid-template-columns: 1fr !important; }
-      .services { padding: 56px 5%; }
-      .section-header { flex-direction: column; gap: 12px; }
-      .section-right { max-width: 100%; }
-      .search-row { flex-direction: column; }
-      .search-btn { width: 100%; }
-      .trust-badges { flex-direction: column; }
-      .hero-perks { gap: 14px; }
+    footer a{color:#ea580c;text-decoration:none}
+
+    /* Mobile */
+    @media (max-width:720px){
+      .sk-badge{font-size:.65rem;padding:6px 10px}
+      nav{top:28px;padding:0 3%}
+      .nav-inner{padding:10px 16px;border-radius:10px}
+      .nav-links{display:none}
+      .hero{padding:96px 5% 56px;min-height:auto}
+      .hero-inner{grid-template-columns:1fr;gap:32px}
+      .hero-right{display:none}
+      .hero h1{font-size:clamp(2rem,8vw,2.6rem)}
+      .hero-sub{font-size:.93rem}
+      .hero-btns{flex-direction:column}
+      .hero-btns a{text-align:center;justify-content:center}
+      .stats-inner{gap:8px}
+      .stat{padding:0 10px}
+      .stat-num{font-size:1.6rem}
+      .cards{grid-template-columns:1fr}
+      .services{padding:56px 5%}
+      .cta-sec{padding:56px 5%}
+      .hero-perks{gap:12px}
     }
   </style>
 </head>
 <body>
 
-<div class="sk-badge">Modelo criado por <a href="../index.html">SK Services</a> · <a href="../index.html#templates">← Ver todos os modelos</a></div>
+<div class="sk-badge">
+  <span>Modelo criado por <a href="../index.html">SK Services</a></span>
+  <span>·</span>
+  <a href="../index.html#templates">← Ver todos os modelos</a>
+</div>
 
 <nav>
   <div class="nav-inner">
-    <div class="logo"><em>Pet</em>Care <span>🐾</span></div>
+    <div class="logo"><em>Pet</em>Care 🐾</div>
     <ul class="nav-links">
-      <li><a href="#">Banho & Tosa</a></li>
-      <li><a href="#">Veterinária</a></li>
-      <li><a href="#">Loja</a></li>
-      <li><a href="#">Hotel Pet</a></li>
-      <li><a href="#" class="nav-cta">Agendar Banho</a></li>
+      <li><a href="#">Serviços</a></li><li><a href="#">Veterinária</a></li><li><a href="#">Produtos</a></li><li><a href="#">Blog</a></li>
+      <li><a href="#" class="nav-cta">Agendar Serviço</a></li>
     </ul>
   </div>
 </nav>
 
 <section class="hero">
-  <div class="hero-content">
+  <div class="hero-inner">
     <div class="hero-left">
-      <span class="hero-tag">🐾 Pet Shop & Veterinária</span>
-      <h1>O cuidado que seu pet<br>merece <em>todo dia</em></h1>
-      <p class="hero-sub">Banho, tosa, consultas veterinárias e os melhores produtos para o seu amigo de quatro patas. Tudo em um só lugar, com amor e profissionalismo.</p>
+      <div class="hero-tag">🐾 Pet Shop & Clínica Veterinária</div>
+      <h1>Porque eles merecem<br>o <em>melhor cuidado</em></h1>
+      <p class="hero-sub">Clínica veterinária, banho & tosa, creche e loja completa. Tudo o que seu pet precisa em um só lugar, com amor e profissionalismo.</p>
       <div class="hero-btns">
-        <a href="#" class="btn-primary">Agendar Banho</a>
-        <a href="#" class="btn-outline">Ver Produtos</a>
+        <a href="#" class="btn-primary">Agendar Banho & Tosa</a>
+        <a href="#" class="btn-ghost">Ver Serviços</a>
       </div>
-      <div class="trust-badges">
-        <div class="badge"><span class="badge-icon">⭐</span> 5★ avaliações</div>
-        <div class="badge"><span class="badge-icon">🏥</span> Vet 24h</div>
-        <div class="badge"><span class="badge-icon">🚗</span> Busca e leva</div>
+      <div class="hero-perks">
+        <span class="perk"><span class="perk-dot"></span>Veterinários 24h</span><span class="perk"><span class="perk-dot"></span>Busca & entrega</span><span class="perk"><span class="perk-dot"></span>Produtos premium</span>
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-visual">
-        <div class="pet-card">
-          <div class="pet-avatar">🐶</div>
-          <div class="pet-info"><h4>Toby – Golden Retriever</h4><p>Banho + Tosa agendado para amanhã</p></div>
-          <span class="pet-status">Confirmado</span>
-        </div>
-        <div class="pet-card">
-          <div class="pet-avatar">🐱</div>
-          <div class="pet-info"><h4>Luna – Persa</h4><p>Consulta veterinária hoje às 15h</p></div>
-          <span class="pet-status">Hoje</span>
-        </div>
-        <div class="stats-row">
-          <div class="mini-stat"><div class="mini-num">5k+</div><div class="mini-label">Pets atendidos</div></div>
-          <div class="mini-stat"><div class="mini-num">10 anos</div><div class="mini-label">Experiência</div></div>
-          <div class="mini-stat"><div class="mini-num">5★</div><div class="mini-label">Avaliações</div></div>
-        </div>
+      <div style="background:rgba(234,88,12,0.07);border:1px solid rgba(234,88,12,0.15);border-radius:20px;padding:28px;width:100%;max-width:380px;animation:floatslow 5s ease-in-out infinite;box-shadow:0 20px 60px rgba(0,0,0,.25)">
+  <div style="font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#ea580c;margin-bottom:18px">Agenda de hoje</div>
+  <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(234,88,12,0.15);"><div style="width:38px;height:38px;border-radius:10px;background:rgba(234,88,12,0.07);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">🐕</div><div><div style="font-size:.88rem;font-weight:600;color:rgba(0,0,0,0.8);margin-bottom:2px">Rex - Banho & Tosa</div><div style="font-size:.76rem;color:rgba(0,0,0,0.4)">Hoje 10:30</div></div><div style="margin-left:auto;font-size:.82rem;font-weight:700;color:#ea580c">Conf.</div></div><div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(234,88,12,0.15);"><div style="width:38px;height:38px;border-radius:10px;background:rgba(234,88,12,0.07);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">😺</div><div><div style="font-size:.88rem;font-weight:600;color:rgba(0,0,0,0.8);margin-bottom:2px">Luna - Consulta Vet</div><div style="font-size:.76rem;color:rgba(0,0,0,0.4)">Hoje 14:00</div></div><div style="margin-left:auto;font-size:.82rem;font-weight:700;color:#ea580c">Aguard.</div></div><div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(234,88,12,0.15);"><div style="width:38px;height:38px;border-radius:10px;background:rgba(234,88,12,0.07);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">🐶</div><div><div style="font-size:.88rem;font-weight:600;color:rgba(0,0,0,0.8);margin-bottom:2px">Bolinha - Vacina V10</div><div style="font-size:.76rem;color:rgba(0,0,0,0.4)">Amanhã 09:00</div></div><div style="margin-left:auto;font-size:.82rem;font-weight:700;color:#ea580c">Agend.</div></div>
+</div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">3.000+</div><div class="stat-lbl">Pets atendidos</div></div><div class="stat"><div class="stat-num">4.9★</div><div class="stat-lbl">Avaliação</div></div><div class="stat"><div class="stat-num">5 anos</div><div class="stat-lbl">No mercado</div></div><div class="stat"><div class="stat-num">15+</div><div class="stat-lbl">Profissionais</div></div>
+  </div>
+</div>
+
+<section class="services">
+  <div class="services-inner">
+    <p class="section-kicker">Nossos Serviços</p>
+    <h2 class="section-title">Tudo para o bem-estar<br>do seu pet</h2>
+    <p class="section-sub">Desde consultas veterinárias até banho & tosa, oferecemos serviços completos com muito carinho.</p>
+    <div class="cards">
+      
+      <div class="card">
+        <div class="card-icon">🐕</div>
+        <h3>Banho & Tosa</h3>
+        <p>Banho, tosa, hidratação e perfumaria com produtos hipoalergênicos premium. Seu pet sai renovado e cheiroso!</p>
+        <span class="card-badge">Cães · Gatos · Exóticos</span>
+        <a href="#" class="card-link">Saiba mais →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">💊</div>
+        <h3>Clínica Veterinária</h3>
+        <p>Consultas, vacinas, exames laboratoriais e cirurgias com veterinários especializados e equipamentos modernos.</p>
+        <span class="card-badge">Consulta · Vacina · Cirurgia</span>
+        <a href="#" class="card-link">Saiba mais →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛒</div>
+        <h3>Loja & Nutrição</h3>
+        <p>Rações premium, petiscos, brinquedos e acessórios. Nutrição especializada para cada raça e fase de vida.</p>
+        <span class="card-badge">Ração · Petisco · Acessório</span>
+        <a href="#" class="card-link">Saiba mais →</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="services">
-  <div class="services-inner">
-    <p class="section-label">Nossos Serviços</p>
-    <h2 class="section-title">Tudo que seu pet<br>precisa aqui</h2>
-    <p class="section-sub">Serviços completos de cuidado animal com profissionais apaixonados e certificados para tratar seu pet como ele merece.</p>
-    <div class="cards">
-      <div class="card">
-        <div class="card-icon">🛁</div>
-        <h3>Banho & Tosa</h3>
-        <p>Banho com produtos premium, tosa estilizada e hidratação para que seu pet fique cheiroso, bonito e confortável por mais tempo.</p>
-        <p class="card-price">A partir de R$ 49,90</p>
-        <a href="#" class="card-link">Agendar agora →</a>
-      </div>
-      <div class="card">
-        <div class="card-icon">🩺</div>
-        <h3>Veterinária</h3>
-        <p>Consultas de rotina, vacinação, exames laboratoriais e cirurgias. Médicos veterinários especializados em cães e gatos.</p>
-        <p class="card-price">Consulta a partir de R$ 89,00</p>
-        <a href="#" class="card-link">Agendar consulta →</a>
-      </div>
-      <div class="card">
-        <div class="card-icon">🛍️</div>
-        <h3>Loja de Produtos</h3>
-        <p>Rações premium, brinquedos, acessórios, coleiras, caminhas e tudo que seu pet precisa para uma vida feliz e saudável.</p>
-        <p class="card-price">Frete grátis acima de R$ 150</p>
-        <a href="#" class="card-link">Ver produtos →</a>
-      </div>
-    </div>
+<section class="cta-sec">
+  <div class="cta-inner">
+    <p class="cta-kicker">Pronto para começar?</p>
+    <h2 class="cta-h">Agende o cuidado<br>que seu pet merece</h2>
+    <p class="cta-sub">Entre em contato pelo WhatsApp e agende o serviço. Fazemos busca e entrega na sua região.</p>
+    <a href="https://wa.me/5531992914959?text=Olá!%20Vi%20o%20modelo%20PetCare%20e%20quero%20um%20orçamento." class="btn-wa" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Quero este modelo
+    </a>
   </div>
 </section>
 
 <footer>
-  <p>© 2025 <strong>PetCare</strong>. Porque eles merecem o melhor. · Template por SK Services</p>
+  <p>© 2025 <strong>PetCare</strong> · Amor e cuidado para seu pet · Template por <a href="../index.html">SK Services</a></p>
 </footer>
 
 </body>

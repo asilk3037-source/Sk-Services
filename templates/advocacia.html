@@ -3,180 +3,211 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ferreira & Associados – Advocacia</title>
+  <title>Ferreira & Associados – Defendemos seus direitos<br>com <em>excelência jurídica</em></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Space Grotesk',sans-serif;background:#060f1e;color:#e8e8e8;overflow-x:hidden}
+    body{font-family:'Space Grotesk',sans-serif;background:#050c1a;color:#f0f0f0;overflow-x:hidden}
 
-    .sk-badge{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,0.9);color:#aaa;text-align:center;padding:8px;font-size:0.75rem;z-index:9999}
-    .sk-badge a{color:#c9a82c;text-decoration:none;font-weight:600}
-    .sk-badge a:hover{text-decoration:underline}
+    /* SK badge */
+    .sk-badge{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,0.92);color:#aaa;text-align:center;padding:8px 16px;font-size:0.72rem;z-index:9999;display:flex;align-items:center;justify-content:center;gap:12px}
+    .sk-badge a{color:#c9a82c;text-decoration:none;font-weight:600;transition:opacity .2s}
+    .sk-badge a:hover{opacity:.75}
 
+    /* Nav */
     nav{position:fixed;top:32px;left:0;right:0;z-index:1000;padding:0 5%}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:16px 28px;background:rgba(6,15,30,0.9);backdrop-filter:blur(14px);border-radius:4px;border-bottom:2px solid rgba(201,168,44,0.3)}
-    .logo{font-size:1.1rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#e8e8e8}
-    .logo span{color:#c9a82c}
-    .nav-links{display:flex;gap:28px;list-style:none}
-    .nav-links a{color:rgba(232,232,232,0.7);text-decoration:none;font-size:0.88rem;font-weight:400;letter-spacing:0.5px;transition:color 0.2s}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:14px 28px;background:rgba(5,12,26,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:14px;border:1px solid rgba(201,168,44,0.2);box-shadow:0 4px 24px rgba(0,0,0,0.15)}
+    .logo{font-size:1.35rem;font-weight:700;letter-spacing:-0.5px;color:#f0f0f0}
+    .logo em{font-style:normal;color:#c9a82c}
+    .nav-links{display:flex;gap:26px;list-style:none}
+    .nav-links a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color .2s}
     .nav-links a:hover{color:#c9a82c}
-    .nav-cta{border:1px solid #c9a82c;color:#c9a82c!important;padding:9px 22px;font-weight:600!important;letter-spacing:0.5px;transition:all 0.2s!important}
-    .nav-cta:hover{background:#c9a82c!important;color:#060f1e!important}
+    .nav-cta{background:#c9a82c;color:#050c1a!important;padding:10px 22px;border-radius:8px;font-weight:700!important;transition:filter .2s!important}
+    .nav-cta:hover{filter:brightness(1.12)!important}
 
-    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:140px 24px 80px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(201,168,44,0.06) 0%,transparent 50%),radial-gradient(ellipse 70% 60% at 20% 60%,rgba(201,168,44,0.05) 0%,transparent 70%)}
-    .hero-line{position:absolute;left:0;top:50%;height:1px;width:100%;background:linear-gradient(90deg,transparent,rgba(201,168,44,0.15),transparent);pointer-events:none}
-    .hero-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-    .hero-left{}
-    .hero-tag{font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#c9a82c;margin-bottom:20px;display:flex;align-items:center;gap:10px}
-    .hero-tag::before{content:'';width:30px;height:1px;background:#c9a82c}
-    .hero h1{font-size:clamp(2.2rem,4vw,3.4rem);font-weight:700;line-height:1.15;margin-bottom:20px;color:#f0f0f0;letter-spacing:-0.5px}
+    /* Animations */
+    @keyframes pulse{0%{opacity:.55;transform:scale(1)}100%{opacity:1;transform:scale(1.12)}}
+    @keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+    @keyframes floatslow{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    @keyframes fadein{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes shimmer{0%{background-position:200% center}100%{background-position:-200% center}}
+
+    /* Hero */
+    .hero{min-height:100vh;display:flex;align-items:center;padding:120px 5% 80px;position:relative;overflow:hidden;background:#050c1a}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 35% 50%,rgba(201,168,44,0.25) 0%,transparent 65%);animation:pulse 7s ease-in-out infinite alternate;pointer-events:none}
+    .hero::after{content:'';position:absolute;bottom:-100px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,44,0.12) 0%,transparent 60%);pointer-events:none}
+    .hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+    .hero-left{animation:fadein .8s ease both}
+    .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,44,0.12);border:1px solid rgba(201,168,44,0.30);color:#c9a82c;padding:7px 18px;border-radius:24px;font-size:0.78rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:24px}
+    .hero h1{font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:700;line-height:1.1;letter-spacing:-1.5px;margin-bottom:18px}
     .hero h1 em{font-style:normal;color:#c9a82c}
-    .hero-sub{font-size:1rem;color:rgba(232,232,232,0.55);line-height:1.75;margin-bottom:36px;max-width:460px}
-    .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
-    .btn-primary{background:#c9a82c;color:#060f1e;padding:13px 28px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.25s;letter-spacing:0.3px}
-    .btn-primary:hover{background:#b8960c;transform:translateY(-2px)}
-    .btn-outline{background:transparent;color:#e8e8e8;padding:13px 28px;font-weight:600;font-size:0.95rem;text-decoration:none;border:1px solid rgba(232,232,232,0.25);transition:all 0.25s}
-    .btn-outline:hover{border-color:#c9a82c;color:#c9a82c;transform:translateY(-2px)}
-    .hero-right{display:flex;flex-direction:column;gap:16px}
-    .stat-card{background:rgba(201,168,44,0.05);border:1px solid rgba(201,168,44,0.15);padding:20px 24px;display:flex;align-items:center;gap:18px}
-    .stat-num{font-size:2rem;font-weight:700;color:#c9a82c;min-width:80px}
-    .stat-label{font-size:0.88rem;color:rgba(232,232,232,0.6);line-height:1.5}
+    .hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:36px;max-width:480px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+    .btn-primary{background:#c9a82c;color:#050c1a;padding:14px 32px;border-radius:10px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .25s;box-shadow:0 4px 20px rgba(201,168,44,0.30)}
+    .btn-primary:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,168,44,0.25)}
+    .btn-ghost{background:transparent;color:#f0f0f0;padding:14px 32px;border-radius:10px;font-weight:600;font-size:1rem;text-decoration:none;border:1.5px solid rgba(201,168,44,0.30);transition:all .25s}
+    .btn-ghost:hover{border-color:#c9a82c;color:#c9a82c;transform:translateY(-2px)}
+    .hero-perks{display:flex;gap:24px;flex-wrap:wrap}
+    .perk{display:flex;align-items:center;gap:8px;font-size:0.83rem;color:rgba(255,255,255,0.55)}
+    .perk-dot{width:7px;height:7px;border-radius:50%;background:#c9a82c;opacity:.7}
+    .hero-right{animation:fadein .8s .2s ease both;display:flex;align-items:center;justify-content:center}
 
-    .services{padding:90px 5%;background:#080e1c}
+    /* Stats strip */
+    .stats-strip{background:rgba(201,168,44,0.08);border-top:1px solid rgba(201,168,44,0.2);border-bottom:1px solid rgba(201,168,44,0.2);padding:32px 5%}
+    .stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-around;gap:20px;flex-wrap:wrap}
+    .stat{text-align:center;padding:0 20px}
+    .stat-num{font-size:2.2rem;font-weight:700;color:#c9a82c;letter-spacing:-1px;line-height:1}
+    .stat-lbl{font-size:0.82rem;color:rgba(255,255,255,0.55);margin-top:6px;font-weight:400}
+
+    /* Services */
+    .services{padding:88px 5%;background:#070e1d}
     .services-inner{max-width:1200px;margin:0 auto}
-    .section-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:52px;gap:40px;flex-wrap:wrap}
-    .section-label{font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#c9a82c;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-    .section-label::before{content:'';width:24px;height:1px;background:#c9a82c}
-    .section-title{font-size:clamp(1.7rem,2.8vw,2.4rem);font-weight:700;letter-spacing:-0.3px;color:#f0f0f0}
-    .section-right{max-width:380px}
-    .section-sub{color:rgba(232,232,232,0.5);font-size:0.92rem;line-height:1.75}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px}
-    .card{background:#0a1220;border:1px solid rgba(201,168,44,0.08);padding:36px 28px;transition:all 0.3s;position:relative}
-    .card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:#c9a82c;transform:scaleX(0);transition:transform 0.3s;transform-origin:left}
-    .card:hover::after{transform:scaleX(1)}
-    .card:hover{background:#0d1628}
-    .card-num{font-size:0.75rem;font-weight:600;color:rgba(201,168,44,0.4);letter-spacing:2px;margin-bottom:16px}
-    .card-icon{font-size:1.8rem;margin-bottom:16px}
-    .card h3{font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#f0f0f0}
-    .card p{color:rgba(232,232,232,0.5);font-size:0.9rem;line-height:1.7;margin-bottom:20px}
-    .card-link{color:#c9a82c;font-size:0.85rem;font-weight:600;text-decoration:none;letter-spacing:0.5px;transition:gap 0.2s;display:inline-flex;align-items:center;gap:6px}
+    .section-kicker{font-size:0.75rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#c9a82c;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+    .section-kicker::before{content:'';width:28px;height:2px;background:#c9a82c;border-radius:2px}
+    .section-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;letter-spacing:-0.5px;margin-bottom:14px;line-height:1.2}
+    .section-sub{color:rgba(255,255,255,0.55);font-size:0.95rem;max-width:500px;line-height:1.75;margin-bottom:56px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+    .card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,44,0.2);border-radius:18px;padding:36px 28px;transition:all .3s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+    .card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 100% 0%,rgba(201,168,44,0.12),transparent 60%);opacity:0;transition:opacity .3s}
+    .card:hover{background:rgba(255,255,255,0.07);border-color:rgba(201,168,44,0.30);transform:translateY(-5px);box-shadow:0 16px 48px rgba(201,168,44,.12)}
+    .card:hover::before{opacity:1}
+    .card-icon{width:54px;height:54px;border-radius:14px;background:rgba(201,168,44,0.12);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px;flex-shrink:0}
+    .card h3{font-size:1.18rem;font-weight:700;margin-bottom:10px}
+    .card p{color:rgba(255,255,255,0.55);font-size:0.91rem;line-height:1.72;flex:1;margin-bottom:20px}
+    .card-badge{display:inline-block;background:rgba(201,168,44,0.12);color:#c9a82c;border:1px solid rgba(201,168,44,0.30);font-size:0.73rem;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:16px}
+    .card-link{color:#c9a82c;font-size:0.86rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap .2s;margin-top:auto}
     .card-link:hover{gap:10px}
 
-    footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(201,168,44,0.1);color:rgba(232,232,232,0.3);font-size:0.82rem}
+    /* CTA section */
+    .cta-sec{padding:88px 5%;background:linear-gradient(135deg,#050c1a 0%,#070e1d 100%);position:relative;overflow:hidden;text-align:center}
+    .cta-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(201,168,44,0.25) 0%,transparent 65%);pointer-events:none}
+    .cta-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+    .cta-kicker{font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#c9a82c;margin-bottom:16px}
+    .cta-h{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-1px;margin-bottom:16px;line-height:1.15}
+    .cta-sub{font-size:1rem;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:36px}
+    .btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:16px 36px;border-radius:12px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .25s;box-shadow:0 4px 20px rgba(37,211,102,.3)}
+    .btn-wa:hover{background:#1db954;transform:translateY(-2px);box-shadow:0 8px 32px rgba(37,211,102,.4)}
+    .btn-wa svg{width:22px;height:22px;fill:currentColor}
+
+    /* Footer */
+    footer{text-align:center;padding:36px 24px;border-top:1px solid rgba(201,168,44,0.2);color:rgba(255,255,255,0.25);font-size:0.8rem}
     footer strong{color:#c9a82c}
-    /* MOBILE RESPONSIVE */
-    @media (max-width: 720px) {
-      .sk-badge { font-size: 0.68rem; padding: 6px 8px; line-height: 1.4; }
-      nav { top: 28px; padding: 0 3%; }
-      .nav-inner { padding: 10px 16px; border-radius: 10px; }
-      .nav-links { display: none; }
-      .hero { padding: 100px 20px 56px; min-height: auto; }
-      .hero-content { grid-template-columns: 1fr !important; gap: 32px; }
-      .hero-right { display: none; }
-      .hero h1 { font-size: clamp(1.8rem, 8vw, 2.4rem) !important; }
-      .hero-sub, .hero-tagline { font-size: 0.95rem !important; }
-      .hero-btns { flex-direction: column; align-items: stretch; }
-      .hero-btns a, .btn-primary, .btn-outline { width: 100%; text-align: center; justify-content: center; }
-      .stats { gap: 20px; padding: 20px 16px; }
-      .stat-card { padding: 14px 16px; }
-      .cards { grid-template-columns: 1fr !important; }
-      .services { padding: 56px 5%; }
-      .section-header { flex-direction: column; gap: 12px; }
-      .section-right { max-width: 100%; }
-      .search-row { flex-direction: column; }
-      .search-btn { width: 100%; }
-      .trust-badges { flex-direction: column; }
-      .hero-perks { gap: 14px; }
+    footer a{color:#c9a82c;text-decoration:none}
+
+    /* Mobile */
+    @media (max-width:720px){
+      .sk-badge{font-size:.65rem;padding:6px 10px}
+      nav{top:28px;padding:0 3%}
+      .nav-inner{padding:10px 16px;border-radius:10px}
+      .nav-links{display:none}
+      .hero{padding:96px 5% 56px;min-height:auto}
+      .hero-inner{grid-template-columns:1fr;gap:32px}
+      .hero-right{display:none}
+      .hero h1{font-size:clamp(2rem,8vw,2.6rem)}
+      .hero-sub{font-size:.93rem}
+      .hero-btns{flex-direction:column}
+      .hero-btns a{text-align:center;justify-content:center}
+      .stats-inner{gap:8px}
+      .stat{padding:0 10px}
+      .stat-num{font-size:1.6rem}
+      .cards{grid-template-columns:1fr}
+      .services{padding:56px 5%}
+      .cta-sec{padding:56px 5%}
+      .hero-perks{gap:12px}
     }
   </style>
 </head>
 <body>
 
-<div class="sk-badge">Modelo criado por <a href="../index.html">SK Services</a> · <a href="../index.html#templates">← Ver todos os modelos</a></div>
+<div class="sk-badge">
+  <span>Modelo criado por <a href="../index.html">SK Services</a></span>
+  <span>·</span>
+  <a href="../index.html#templates">← Ver todos os modelos</a>
+</div>
 
 <nav>
   <div class="nav-inner">
-    <div class="logo">Ferreira <span>&</span> Associados</div>
+    <div class="logo">Ferreira <em>&</em> Associados</div>
     <ul class="nav-links">
-      <li><a href="#">Áreas de Atuação</a></li>
-      <li><a href="#">Nossa Equipe</a></li>
-      <li><a href="#">Casos</a></li>
-      <li><a href="#">Contato</a></li>
+      <li><a href="#">Áreas</a></li><li><a href="#">Equipe</a></li><li><a href="#">Casos</a></li><li><a href="#">Blog</a></li>
       <li><a href="#" class="nav-cta">Consulta Gratuita</a></li>
     </ul>
   </div>
 </nav>
 
 <section class="hero">
-  <div class="hero-line"></div>
-  <div class="hero-content">
+  <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-tag">Escritório de Advocacia</div>
-      <h1>Soluções jurídicas para<br>proteger o que <em>é seu</em></h1>
-      <p class="hero-sub">Combinamos décadas de experiência com estratégias jurídicas modernas para defender seus direitos com eficiência, ética e comprometimento total.</p>
+      <div class="hero-tag">⚖️ Escritório de Advocacia</div>
+      <h1>Defendemos seus direitos<br>com <em>excelência jurídica</em></h1>
+      <p class="hero-sub">Décadas de experiência combinadas com estratégias jurídicas modernas. Comprometimento total com cada cliente, do início ao fim.</p>
       <div class="hero-btns">
         <a href="#" class="btn-primary">Consulta Gratuita</a>
-        <a href="#" class="btn-outline">Nossa Equipe</a>
+        <a href="#" class="btn-ghost">Nossas Áreas</a>
+      </div>
+      <div class="hero-perks">
+        <span class="perk"><span class="perk-dot"></span>25 anos de experiência</span><span class="perk"><span class="perk-dot"></span>98% de êxito</span><span class="perk"><span class="perk-dot"></span>Consulta inicial gratuita</span>
       </div>
     </div>
     <div class="hero-right">
-      <div class="stat-card">
-        <div class="stat-num">25</div>
-        <div class="stat-label"><strong style="color:#e8e8e8">Anos de experiência</strong><br>Atuando nas mais diversas áreas do direito</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:380px;animation:floatslow 6s ease-in-out infinite"><div style="background:rgba(0,0,0,.15);border:1px solid rgba(201,168,44,0.2);border-radius:14px;padding:22px;text-align:center"><div style="font-size:1.7rem;font-weight:700;color:#c9a82c">25</div><div style="font-size:.78rem;color:rgba(240,230,200,0.4);margin-top:5px">Anos</div></div><div style="background:rgba(0,0,0,.15);border:1px solid rgba(201,168,44,0.2);border-radius:14px;padding:22px;text-align:center"><div style="font-size:1.7rem;font-weight:700;color:#c9a82c">3k+</div><div style="font-size:.78rem;color:rgba(240,230,200,0.4);margin-top:5px">Casos</div></div><div style="background:rgba(0,0,0,.15);border:1px solid rgba(201,168,44,0.2);border-radius:14px;padding:22px;text-align:center"><div style="font-size:1.7rem;font-weight:700;color:#c9a82c">98%</div><div style="font-size:.78rem;color:rgba(240,230,200,0.4);margin-top:5px">Êxito</div></div><div style="background:rgba(0,0,0,.15);border:1px solid rgba(201,168,44,0.2);border-radius:14px;padding:22px;text-align:center"><div style="font-size:1.7rem;font-weight:700;color:#c9a82c">12</div><div style="font-size:.78rem;color:rgba(240,230,200,0.4);margin-top:5px">Especialistas</div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">25 anos</div><div class="stat-lbl">De experiência</div></div><div class="stat"><div class="stat-num">3.000+</div><div class="stat-lbl">Casos concluídos</div></div><div class="stat"><div class="stat-num">98%</div><div class="stat-lbl">Índice de êxito</div></div><div class="stat"><div class="stat-num">12</div><div class="stat-lbl">Especialistas</div></div>
+  </div>
+</div>
+
+<section class="services">
+  <div class="services-inner">
+    <p class="section-kicker">Áreas de Atuação</p>
+    <h2 class="section-title">Como podemos<br>defender você</h2>
+    <p class="section-sub">Atuamos nas principais áreas com equipes especializadas dedicadas integralmente a cada caso.</p>
+    <div class="cards">
+      
+      <div class="card">
+        <div class="card-icon">⚖️</div>
+        <h3>Direito Civil</h3>
+        <p>Contratos, divórcios, inventários e disputas patrimoniais. Protegemos seus bens e direitos com estratégia e dedicação.</p>
+        <span class="card-badge">Civil · Família · Patrimônio</span>
+        <a href="#" class="card-link">Saiba mais →</a>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">3k+</div>
-        <div class="stat-label"><strong style="color:#e8e8e8">Casos concluídos</strong><br>Com resultados favoráveis para nossos clientes</div>
+      <div class="card">
+        <div class="card-icon">🏛️</div>
+        <h3>Direito Trabalhista</h3>
+        <p>Defesa de trabalhadores e empresas em reclamações trabalhistas, rescisões, assédio e questões previdenciárias.</p>
+        <span class="card-badge">CLT · FGTS · Previdência</span>
+        <a href="#" class="card-link">Saiba mais →</a>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">98%</div>
-        <div class="stat-label"><strong style="color:#e8e8e8">Índice de êxito</strong><br>Um dos maiores do setor na região</div>
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3>Direito Empresarial</h3>
+        <p>Assessoria completa para empresas: contratos, M&A, compliance, recuperação judicial e propriedade intelectual.</p>
+        <span class="card-badge">Contratos · Compliance · M&A</span>
+        <a href="#" class="card-link">Saiba mais →</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="services">
-  <div class="services-inner">
-    <div class="section-header">
-      <div>
-        <div class="section-label">Áreas de Atuação</div>
-        <h2 class="section-title">Como podemos<br>te ajudar</h2>
-      </div>
-      <div class="section-right">
-        <p class="section-sub">Atuamos nas principais áreas do direito com equipes especializadas e totalmente dedicadas a cada caso, grande ou pequeno.</p>
-      </div>
-    </div>
-    <div class="cards">
-      <div class="card">
-        <div class="card-num">01</div>
-        <div class="card-icon">⚖️</div>
-        <h3>Direito Civil</h3>
-        <p>Contratos, divórcios, inventários, indenizações e disputas patrimoniais. Protegemos seus bens e seus direitos em todas as fases da vida.</p>
-        <a href="#" class="card-link">Ver área →</a>
-      </div>
-      <div class="card">
-        <div class="card-num">02</div>
-        <div class="card-icon">🏛️</div>
-        <h3>Direito Trabalhista</h3>
-        <p>Defesa de trabalhadores e empresas em reclamações trabalhistas, rescisões, assédio moral e questões previdenciárias.</p>
-        <a href="#" class="card-link">Ver área →</a>
-      </div>
-      <div class="card">
-        <div class="card-num">03</div>
-        <div class="card-icon">📋</div>
-        <h3>Direito Empresarial</h3>
-        <p>Assessoria jurídica completa para empresas: contratos, fusões, compliance, recuperação judicial e proteção de propriedade intelectual.</p>
-        <a href="#" class="card-link">Ver área →</a>
-      </div>
-    </div>
+<section class="cta-sec">
+  <div class="cta-inner">
+    <p class="cta-kicker">Pronto para começar?</p>
+    <h2 class="cta-h">Seus direitos merecem<br>a melhor defesa</h2>
+    <p class="cta-sub">Agende uma consulta gratuita. Nossos especialistas analisam seu caso sem compromisso.</p>
+    <a href="https://wa.me/5531992914959?text=Olá!%20Vi%20o%20modelo%20Ferreira%20%26%20Associados%20e%20quero%20um%20orçamento." class="btn-wa" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Quero este modelo
+    </a>
   </div>
 </section>
 
 <footer>
-  <p>© 2025 <strong>Ferreira & Associados</strong>. Defendemos seus direitos. · Template por SK Services</p>
+  <p>© 2025 <strong>Ferreira & Associados</strong> · Justiça com excelência · Template por <a href="../index.html">SK Services</a></p>
 </footer>
 
 </body>

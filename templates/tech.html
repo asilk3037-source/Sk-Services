@@ -3,173 +3,214 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TechPro Store – Tecnologia que conecta você</title>
+  <title>TechPro Store – O futuro já chegou.<br><em>Você está preparado?</em></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Space Grotesk',sans-serif;background:#030312;color:#e2e8f0;overflow-x:hidden}
+    body{font-family:'Space Grotesk',sans-serif;background:#04091a;color:#f0f0f0;overflow-x:hidden}
 
-    .sk-badge{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,0.9);color:#94a3b8;text-align:center;padding:8px;font-size:0.75rem;z-index:9999}
-    .sk-badge a{color:#3b82f6;text-decoration:none;font-weight:600}
-    .sk-badge a:hover{text-decoration:underline}
+    /* SK badge */
+    .sk-badge{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,0.92);color:#aaa;text-align:center;padding:8px 16px;font-size:0.72rem;z-index:9999;display:flex;align-items:center;justify-content:center;gap:12px}
+    .sk-badge a{color:#6366f1;text-decoration:none;font-weight:600;transition:opacity .2s}
+    .sk-badge a:hover{opacity:.75}
 
+    /* Nav */
     nav{position:fixed;top:32px;left:0;right:0;z-index:1000;padding:0 5%}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:14px 28px;background:rgba(3,3,18,0.88);backdrop-filter:blur(14px);border-radius:14px;border:1px solid rgba(59,130,246,0.15)}
-    .logo{font-size:1.3rem;font-weight:700;color:#e2e8f0}
-    .logo em{font-style:normal;color:#3b82f6}
-    .logo sup{font-size:0.6rem;font-weight:500;color:#6366f1;vertical-align:super;letter-spacing:1px}
-    .nav-links{display:flex;gap:24px;list-style:none}
-    .nav-links a{color:rgba(226,232,240,0.6);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s}
-    .nav-links a:hover{color:#3b82f6}
-    .nav-cta{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff!important;padding:9px 20px;border-radius:8px;font-weight:600!important;transition:opacity 0.2s!important}
-    .nav-cta:hover{opacity:0.85!important}
-    .nav-cart{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);color:#3b82f6!important;padding:9px 16px;border-radius:8px;font-weight:600!important}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:14px 28px;background:rgba(4,9,26,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:14px;border:1px solid rgba(99,102,241,0.2);box-shadow:0 4px 24px rgba(0,0,0,0.15)}
+    .logo{font-size:1.35rem;font-weight:700;letter-spacing:-0.5px;color:#f0f0f0}
+    .logo em{font-style:normal;color:#6366f1}
+    .nav-links{display:flex;gap:26px;list-style:none}
+    .nav-links a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:#6366f1}
+    .nav-cta{background:#6366f1;color:#04091a!important;padding:10px 22px;border-radius:8px;font-weight:700!important;transition:filter .2s!important}
+    .nav-cta:hover{filter:brightness(1.12)!important}
 
-    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 30%,rgba(59,130,246,0.12) 0%,rgba(99,102,241,0.06) 40%,transparent 70%)}
-    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.03) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
-    .hero-glow{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,0.08) 0%,transparent 65%);top:20%;left:50%;transform:translateX(-50%);pointer-events:none}
-    .hero-content{position:relative;z-index:1;max-width:820px;margin:0 auto}
-    .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.22);color:#3b82f6;padding:6px 16px;border-radius:20px;font-size:0.78rem;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:24px}
-    .hero-tag-dot{width:6px;height:6px;border-radius:50%;background:#3b82f6;animation:pulse 2s infinite}
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-    .hero h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:700;line-height:1.1;margin-bottom:20px;letter-spacing:-1px}
-    .hero h1 em{font-style:normal;background:linear-gradient(135deg,#3b82f6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero-sub{font-size:1.1rem;color:rgba(226,232,240,0.55);max-width:540px;margin:0 auto 36px;line-height:1.7}
-    .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:52px}
-    .btn-primary{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff;padding:14px 32px;border-radius:10px;font-weight:700;font-size:1rem;text-decoration:none;transition:all 0.25s;box-shadow:0 4px 24px rgba(59,130,246,0.3)}
-    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(59,130,246,0.4)}
-    .btn-outline{background:transparent;color:#e2e8f0;padding:14px 32px;border-radius:10px;font-weight:600;font-size:1rem;text-decoration:none;border:2px solid rgba(99,102,241,0.3);transition:all 0.25s}
-    .btn-outline:hover{border-color:#6366f1;color:#a5b4fc;transform:translateY(-2px)}
-    .stats-bar{display:flex;gap:0;justify-content:center;background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.12);border-radius:12px;overflow:hidden;max-width:600px;margin:0 auto}
-    .stat{flex:1;text-align:center;padding:18px 16px;border-right:1px solid rgba(59,130,246,0.1)}
-    .stat:last-child{border-right:none}
-    .stat-num{font-size:1.4rem;font-weight:700;color:#3b82f6}
-    .stat-label{font-size:0.78rem;color:rgba(226,232,240,0.4);margin-top:4px}
+    /* Animations */
+    @keyframes pulse{0%{opacity:.55;transform:scale(1)}100%{opacity:1;transform:scale(1.12)}}
+    @keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+    @keyframes floatslow{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    @keyframes fadein{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes shimmer{0%{background-position:200% center}100%{background-position:-200% center}}
 
-    .services{padding:90px 5%;background:#050518}
+    /* Hero */
+    .hero{min-height:100vh;display:flex;align-items:center;padding:120px 5% 80px;position:relative;overflow:hidden;background:#04091a}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 35% 50%,rgba(99,102,241,0.25) 0%,transparent 65%);animation:pulse 7s ease-in-out infinite alternate;pointer-events:none}
+    .hero::after{content:'';position:absolute;bottom:-100px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,0.12) 0%,transparent 60%);pointer-events:none}
+    .hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+    .hero-left{animation:fadein .8s ease both}
+    .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(99,102,241,0.12);border:1px solid rgba(99,102,241,0.30);color:#6366f1;padding:7px 18px;border-radius:24px;font-size:0.78rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:24px}
+    .hero h1{font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:700;line-height:1.1;letter-spacing:-1.5px;margin-bottom:18px}
+    .hero h1 em{font-style:normal;color:#6366f1}
+    .hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:36px;max-width:480px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+    .btn-primary{background:#6366f1;color:#04091a;padding:14px 32px;border-radius:10px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .25s;box-shadow:0 4px 20px rgba(99,102,241,0.30)}
+    .btn-primary:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:0 8px 32px rgba(99,102,241,0.25)}
+    .btn-ghost{background:transparent;color:#f0f0f0;padding:14px 32px;border-radius:10px;font-weight:600;font-size:1rem;text-decoration:none;border:1.5px solid rgba(99,102,241,0.30);transition:all .25s}
+    .btn-ghost:hover{border-color:#6366f1;color:#6366f1;transform:translateY(-2px)}
+    .hero-perks{display:flex;gap:24px;flex-wrap:wrap}
+    .perk{display:flex;align-items:center;gap:8px;font-size:0.83rem;color:rgba(255,255,255,0.55)}
+    .perk-dot{width:7px;height:7px;border-radius:50%;background:#6366f1;opacity:.7}
+    .hero-right{animation:fadein .8s .2s ease both;display:flex;align-items:center;justify-content:center}
+
+    /* Stats strip */
+    .stats-strip{background:rgba(99,102,241,0.08);border-top:1px solid rgba(99,102,241,0.2);border-bottom:1px solid rgba(99,102,241,0.2);padding:32px 5%}
+    .stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-around;gap:20px;flex-wrap:wrap}
+    .stat{text-align:center;padding:0 20px}
+    .stat-num{font-size:2.2rem;font-weight:700;color:#6366f1;letter-spacing:-1px;line-height:1}
+    .stat-lbl{font-size:0.82rem;color:rgba(255,255,255,0.55);margin-top:6px;font-weight:400}
+
+    /* Services */
+    .services{padding:88px 5%;background:#060d20}
     .services-inner{max-width:1200px;margin:0 auto}
-    .section-label{font-size:0.78rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#3b82f6;margin-bottom:12px}
-    .section-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;letter-spacing:-0.5px;margin-bottom:14px}
-    .section-sub{color:rgba(226,232,240,0.45);font-size:0.95rem;max-width:460px;line-height:1.7;margin-bottom:52px}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-    .card{background:rgba(255,255,255,0.02);border:1px solid rgba(59,130,246,0.1);border-radius:16px;padding:36px 28px;transition:all 0.3s;position:relative;overflow:hidden}
-    .card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#3b82f6,#6366f1);opacity:0;transition:opacity 0.3s}
+    .section-kicker{font-size:0.75rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#6366f1;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+    .section-kicker::before{content:'';width:28px;height:2px;background:#6366f1;border-radius:2px}
+    .section-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;letter-spacing:-0.5px;margin-bottom:14px;line-height:1.2}
+    .section-sub{color:rgba(255,255,255,0.55);font-size:0.95rem;max-width:500px;line-height:1.75;margin-bottom:56px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+    .card{background:rgba(255,255,255,0.04);border:1px solid rgba(99,102,241,0.2);border-radius:18px;padding:36px 28px;transition:all .3s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+    .card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 100% 0%,rgba(99,102,241,0.12),transparent 60%);opacity:0;transition:opacity .3s}
+    .card:hover{background:rgba(255,255,255,0.07);border-color:rgba(99,102,241,0.30);transform:translateY(-5px);box-shadow:0 16px 48px rgba(99,102,241,.12)}
     .card:hover::before{opacity:1}
-    .card:hover{border-color:rgba(59,130,246,0.25);transform:translateY(-4px);background:rgba(59,130,246,0.04)}
-    .card-icon{width:52px;height:52px;border-radius:12px;background:rgba(59,130,246,0.1);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px}
-    .card h3{font-size:1.2rem;font-weight:700;margin-bottom:10px}
-    .card p{color:rgba(226,232,240,0.5);font-size:0.9rem;line-height:1.7;margin-bottom:20px}
-    .card-actions{display:flex;gap:10px;flex-wrap:wrap}
-    .card-btn{background:rgba(59,130,246,0.1);color:#3b82f6;font-size:0.8rem;font-weight:600;padding:6px 14px;border-radius:6px;text-decoration:none;transition:background 0.2s}
-    .card-btn:hover{background:rgba(59,130,246,0.2)}
-    .card-btn.accent{background:linear-gradient(135deg,rgba(59,130,246,0.15),rgba(99,102,241,0.15));color:#a5b4fc}
+    .card-icon{width:54px;height:54px;border-radius:14px;background:rgba(99,102,241,0.12);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px;flex-shrink:0}
+    .card h3{font-size:1.18rem;font-weight:700;margin-bottom:10px}
+    .card p{color:rgba(255,255,255,0.55);font-size:0.91rem;line-height:1.72;flex:1;margin-bottom:20px}
+    .card-badge{display:inline-block;background:rgba(99,102,241,0.12);color:#6366f1;border:1px solid rgba(99,102,241,0.30);font-size:0.73rem;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:16px}
+    .card-link{color:#6366f1;font-size:0.86rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap .2s;margin-top:auto}
+    .card-link:hover{gap:10px}
 
-    footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(59,130,246,0.08);color:rgba(226,232,240,0.3);font-size:0.82rem}
-    footer strong{color:#3b82f6}
-    /* MOBILE RESPONSIVE */
-    @media (max-width: 720px) {
-      .sk-badge { font-size: 0.68rem; padding: 6px 8px; line-height: 1.4; }
-      nav { top: 28px; padding: 0 3%; }
-      .nav-inner { padding: 10px 16px; border-radius: 10px; }
-      .nav-links { display: none; }
-      .hero { padding: 100px 20px 56px; min-height: auto; }
-      .hero-content { grid-template-columns: 1fr !important; gap: 32px; }
-      .hero-right { display: none; }
-      .hero h1 { font-size: clamp(1.8rem, 8vw, 2.4rem) !important; }
-      .hero-sub, .hero-tagline { font-size: 0.95rem !important; }
-      .hero-btns { flex-direction: column; align-items: stretch; }
-      .hero-btns a, .btn-primary, .btn-outline { width: 100%; text-align: center; justify-content: center; }
-      .stats { gap: 20px; padding: 20px 16px; }
-      .stat-card { padding: 14px 16px; }
-      .cards { grid-template-columns: 1fr !important; }
-      .services { padding: 56px 5%; }
-      .section-header { flex-direction: column; gap: 12px; }
-      .section-right { max-width: 100%; }
-      .search-row { flex-direction: column; }
-      .search-btn { width: 100%; }
-      .trust-badges { flex-direction: column; }
-      .hero-perks { gap: 14px; }
+    /* CTA section */
+    .cta-sec{padding:88px 5%;background:linear-gradient(135deg,#04091a 0%,#060d20 100%);position:relative;overflow:hidden;text-align:center}
+    .cta-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(99,102,241,0.25) 0%,transparent 65%);pointer-events:none}
+    .cta-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+    .cta-kicker{font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#6366f1;margin-bottom:16px}
+    .cta-h{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-1px;margin-bottom:16px;line-height:1.15}
+    .cta-sub{font-size:1rem;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:36px}
+    .btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:16px 36px;border-radius:12px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .25s;box-shadow:0 4px 20px rgba(37,211,102,.3)}
+    .btn-wa:hover{background:#1db954;transform:translateY(-2px);box-shadow:0 8px 32px rgba(37,211,102,.4)}
+    .btn-wa svg{width:22px;height:22px;fill:currentColor}
+
+    /* Footer */
+    footer{text-align:center;padding:36px 24px;border-top:1px solid rgba(99,102,241,0.2);color:rgba(255,255,255,0.25);font-size:0.8rem}
+    footer strong{color:#6366f1}
+    footer a{color:#6366f1;text-decoration:none}
+
+    /* Mobile */
+    @media (max-width:720px){
+      .sk-badge{font-size:.65rem;padding:6px 10px}
+      nav{top:28px;padding:0 3%}
+      .nav-inner{padding:10px 16px;border-radius:10px}
+      .nav-links{display:none}
+      .hero{padding:96px 5% 56px;min-height:auto}
+      .hero-inner{grid-template-columns:1fr;gap:32px}
+      .hero-right{display:none}
+      .hero h1{font-size:clamp(2rem,8vw,2.6rem)}
+      .hero-sub{font-size:.93rem}
+      .hero-btns{flex-direction:column}
+      .hero-btns a{text-align:center;justify-content:center}
+      .stats-inner{gap:8px}
+      .stat{padding:0 10px}
+      .stat-num{font-size:1.6rem}
+      .cards{grid-template-columns:1fr}
+      .services{padding:56px 5%}
+      .cta-sec{padding:56px 5%}
+      .hero-perks{gap:12px}
     }
   </style>
 </head>
 <body>
 
-<div class="sk-badge">Modelo criado por <a href="../index.html">SK Services</a> · <a href="../index.html#templates">← Ver todos os modelos</a></div>
+<div class="sk-badge">
+  <span>Modelo criado por <a href="../index.html">SK Services</a></span>
+  <span>·</span>
+  <a href="../index.html#templates">← Ver todos os modelos</a>
+</div>
 
 <nav>
   <div class="nav-inner">
-    <div class="logo"><em>TechPro</em> Store<sup>®</sup></div>
+    <div class="logo"><em>Tech</em>Pro</div>
     <ul class="nav-links">
-      <li><a href="#">Smartphones</a></li>
-      <li><a href="#">Notebooks</a></li>
-      <li><a href="#">Periféricos</a></li>
-      <li><a href="#">Ofertas</a></li>
-      <li><a href="#" class="nav-cart">🛒 Carrinho</a></li>
-      <li><a href="#" class="nav-cta">Ver Produtos</a></li>
+      <li><a href="#">Produtos</a></li><li><a href="#">Categorias</a></li><li><a href="#">Promoções</a></li><li><a href="#">Suporte</a></li>
+      <li><a href="#" class="nav-cta">Ver Ofertas</a></li>
     </ul>
   </div>
 </nav>
 
 <section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-content">
-    <span class="hero-tag"><span class="hero-tag-dot"></span> Loja de Tecnologia</span>
-    <h1>Os melhores produtos tech<br><em>com o melhor preço</em></h1>
-    <p class="hero-sub">Smartphones, notebooks, periféricos e muito mais. Milhares de produtos selecionados, entrega rápida e garantia assegurada em tudo.</p>
-    <div class="hero-btns">
-      <a href="#" class="btn-primary">Ver Produtos</a>
-      <a href="#" class="btn-outline">Ofertas do Dia</a>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">🚀 Tecnologia & Inovação</div>
+      <h1>O futuro já chegou.<br><em>Você está preparado?</em></h1>
+      <p class="hero-sub">Os melhores produtos de tecnologia com garantia, suporte especializado e entrega ultrarrápida para todo o Brasil.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-primary">Ver Catálogo</a>
+        <a href="#" class="btn-ghost">Falar com Especialista</a>
+      </div>
+      <div class="hero-perks">
+        <span class="perk"><span class="perk-dot"></span>Garantia estendida</span><span class="perk"><span class="perk-dot"></span>Suporte 24/7</span><span class="perk"><span class="perk-dot"></span>Frete rápido</span>
+      </div>
     </div>
-    <div class="stats-bar">
-      <div class="stat"><div class="stat-num">50k+</div><div class="stat-label">Produtos</div></div>
-      <div class="stat"><div class="stat-num">24h</div><div class="stat-label">Entrega</div></div>
-      <div class="stat"><div class="stat-num">1 ano</div><div class="stat-label">Garantia</div></div>
+    <div class="hero-right">
+      <div style="background:rgba(4,9,26,0.9);border:1px solid rgba(99,102,241,0.18);border-radius:20px;padding:24px;width:100%;max-width:380px;animation:floatslow 5s ease-in-out infinite;box-shadow:0 20px 60px rgba(0,0,0,.2)">
+  <div style="font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#6366f1;margin-bottom:16px">Painel</div>
+  <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(99,102,241,0.18)"><div style="width:32px;height:32px;border-radius:8px;background:rgba(99,102,241,0.1);display:flex;align-items:center;justify-content:center;font-size:1rem">💻</div><div style="flex:1"><div style="height:8px;background:rgba(255,255,255,0.35);border-radius:3px;width:MacBook Pro M3%;margin-bottom:4px"></div><div style="height:6px;background:rgba(99,102,241,0.1);border-radius:3px;width:88%"></div></div><div style="font-size:.78rem;font-weight:700;color:#6366f1">R$9.499</div></div><div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(99,102,241,0.18)"><div style="width:32px;height:32px;border-radius:8px;background:rgba(99,102,241,0.1);display:flex;align-items:center;justify-content:center;font-size:1rem">📱</div><div style="flex:1"><div style="height:8px;background:rgba(255,255,255,0.35);border-radius:3px;width:iPhone 15 Pro%;margin-bottom:4px"></div><div style="height:6px;background:rgba(99,102,241,0.1);border-radius:3px;width:95%"></div></div><div style="font-size:.78rem;font-weight:700;color:#6366f1">R$6.999</div></div><div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(99,102,241,0.18)"><div style="width:32px;height:32px;border-radius:8px;background:rgba(99,102,241,0.1);display:flex;align-items:center;justify-content:center;font-size:1rem">🎮</div><div style="flex:1"><div style="height:8px;background:rgba(255,255,255,0.35);border-radius:3px;width:RTX 4070%;margin-bottom:4px"></div><div style="height:6px;background:rgba(99,102,241,0.1);border-radius:3px;width:75%"></div></div><div style="font-size:.78rem;font-weight:700;color:#6366f1">R$3.499</div></div>
+</div>
     </div>
   </div>
 </section>
 
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">50.000+</div><div class="stat-lbl">Produtos</div></div><div class="stat"><div class="stat-num">4.8★</div><div class="stat-lbl">Satisfação</div></div><div class="stat"><div class="stat-num">48h</div><div class="stat-lbl">Entrega</div></div><div class="stat"><div class="stat-num">10 anos</div><div class="stat-lbl">No mercado</div></div>
+  </div>
+</div>
+
 <section class="services">
   <div class="services-inner">
-    <p class="section-label">Categorias em Destaque</p>
-    <h2 class="section-title">Tecnologia para<br>cada necessidade</h2>
-    <p class="section-sub">Curadoria dos melhores produtos de cada categoria com avaliações reais e suporte especializado.</p>
+    <p class="section-kicker">Categorias em Destaque</p>
+    <h2 class="section-title">Tecnologia de ponta<br>para cada necessidade</h2>
+    <p class="section-sub">Do gamer ao profissional, temos o produto certo com o melhor custo-benefício do mercado.</p>
     <div class="cards">
-      <div class="card">
-        <div class="card-icon">📱</div>
-        <h3>Smartphones</h3>
-        <p>Os últimos lançamentos da Apple, Samsung, Motorola e muito mais. Câmeras avançadas, baterias poderosas e desempenho superior.</p>
-        <div class="card-actions">
-          <a href="#" class="card-btn">Ver modelos</a>
-          <a href="#" class="card-btn accent">Lançamentos</a>
-        </div>
-      </div>
+      
       <div class="card">
         <div class="card-icon">💻</div>
-        <h3>Notebooks</h3>
-        <p>Para trabalho, estudo ou jogos — temos o notebook ideal para você. Processadores de última geração com o melhor custo-benefício.</p>
-        <div class="card-actions">
-          <a href="#" class="card-btn">Ver modelos</a>
-          <a href="#" class="card-btn accent">Gamer</a>
-        </div>
+        <h3>Notebooks & PCs</h3>
+        <p>Alta performance para trabalho, criação de conteúdo e gaming. As melhores marcas com garantia e suporte técnico local.</p>
+        <span class="card-badge">Intel · AMD · Apple M</span>
+        <a href="#" class="card-link">Saiba mais →</a>
       </div>
       <div class="card">
-        <div class="card-icon">🖱️</div>
-        <h3>Periféricos & Acessórios</h3>
-        <p>Teclados mecânicos, mouses, headsets, monitores e cabos. Complete seu setup com os melhores acessórios do mercado.</p>
-        <div class="card-actions">
-          <a href="#" class="card-btn">Ver tudo</a>
-          <a href="#" class="card-btn accent">Setup Gamer</a>
-        </div>
+        <div class="card-icon">📱</div>
+        <h3>Smartphones & Tablets</h3>
+        <p>Últimos lançamentos com trade-in facilitado. Parcelamento em até 18x sem juros nos cartões selecionados.</p>
+        <span class="card-badge">iOS · Android · 5G</span>
+        <a href="#" class="card-link">Saiba mais →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎮</div>
+        <h3>Games & Periféricos</h3>
+        <p>Setup gamer completo: monitores, teclados mecânicos, headsets e muito mais. Lave e use sem enrolar.</p>
+        <span class="card-badge">Razer · Logitech · HyperX</span>
+        <a href="#" class="card-link">Saiba mais →</a>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="cta-inner">
+    <p class="cta-kicker">Pronto para começar?</p>
+    <h2 class="cta-h">Encontre o produto<br>ideal para você</h2>
+    <p class="cta-sub">Nossos especialistas ajudam você a escolher o melhor produto dentro do seu orçamento.</p>
+    <a href="https://wa.me/5531992914959?text=Olá!%20Vi%20o%20modelo%20TechPro%20Store%20e%20quero%20um%20orçamento." class="btn-wa" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Quero este modelo
+    </a>
   </div>
 </section>
 
 <footer>
-  <p>© 2025 <strong>TechPro Store</strong>. Tecnologia que conecta você. · Template por SK Services</p>
+  <p>© 2025 <strong>TechPro Store</strong> · Tecnologia que transforma · Template por <a href="../index.html">SK Services</a></p>
 </footer>
 
 </body>
