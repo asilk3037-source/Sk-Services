@@ -20,7 +20,7 @@
   <!-- Nav bar -->
   <rect width="800" height="50" fill="rgba(50,42,11,0.95)"/>
   <!-- Logo text -->
-  <text x="28" y="32" font-family="system-ui,-apple-system,sans-serif" font-size="16" font-weight="700" fill="#c9a82c" letter-spacing="-0.3">Ferreira & Associados</text>
+  <text x="28" y="32" font-family="system-ui,-apple-system,sans-serif" font-size="16" font-weight="700" fill="#c9a82c" letter-spacing="-0.3">Ferreira &amp; Associados</text>
   <!-- Nav links -->
   <text x="480" y="30" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="rgba(255,255,255,0.55)">Áreas</text>
   <text x="550" y="30" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="rgba(255,255,255,0.55)">Equipe</text>
@@ -114,7 +114,7 @@
   <rect x="596" y="396" width="140" height="6" rx="2" fill="rgba(255,255,255,0.22)"/>
   <rect x="596" y="407" width="100" height="6" rx="2" fill="rgba(255,255,255,0.22)" opacity="0.6"/>
   <rect x="550" y="430" width="80" height="16" rx="8" fill="rgba(201,168,44,0.18)"/>
-  <text x="590" y="441" font-family="system-ui,-apple-system,sans-serif" font-size="9" fill="#c9a82c" font-weight="600" text-anchor="middle">Contratos · M&A</text>
+  <text x="590" y="441" font-family="system-ui,-apple-system,sans-serif" font-size="9" fill="#c9a82c" font-weight="600" text-anchor="middle">Contratos · M&amp;A</text>
   <text x="718" y="469" font-family="system-ui,-apple-system,sans-serif" font-size="10" fill="#c9a82c">Saiba mais →</text>
 
   </g>

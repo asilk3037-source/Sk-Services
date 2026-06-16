@@ -20,7 +20,7 @@
   <!-- Nav bar -->
   <rect width="800" height="50" fill="rgba(61,39,2,0.95)"/>
   <!-- Logo text -->
-  <text x="28" y="32" font-family="system-ui,-apple-system,sans-serif" font-size="16" font-weight="700" fill="#f59e0b" letter-spacing="-0.3">Sabor & Arte</text>
+  <text x="28" y="32" font-family="system-ui,-apple-system,sans-serif" font-size="16" font-weight="700" fill="#f59e0b" letter-spacing="-0.3">Sabor &amp; Arte</text>
   <!-- Nav links -->
   <text x="480" y="30" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="rgba(255,255,255,0.55)">Cardápio</text>
   <text x="550" y="30" font-family="system-ui,-apple-system,sans-serif" font-size="11" fill="rgba(255,255,255,0.55)">Reservas</text>

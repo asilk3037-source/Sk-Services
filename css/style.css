@@ -1237,6 +1237,30 @@ input, textarea, select {
   background: linear-gradient(135deg, var(--cyan), var(--purple));
   opacity: 0.9;
 }
+.pricing-pix-banner {
+  display: flex; align-items: center; gap: 10px; justify-content: center;
+  margin: 20px auto 8px;
+  padding: 12px 24px;
+  max-width: 540px;
+  background: rgba(0,212,255,0.07);
+  border: 1px solid rgba(0,212,255,0.25);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+.pix-icon { font-size: 1.25rem; flex-shrink: 0; }
+.pricing-pix-banner strong { color: var(--cyan); }
+.feat-upgrade {
+  list-style: none;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  padding: 8px 10px;
+  background: rgba(0,212,255,0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(0,212,255,0.12);
+}
+.feat-upgrade strong { color: var(--cyan); }
 .pricing-note {
   text-align: center;
   font-size: 0.82rem;

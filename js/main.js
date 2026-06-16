@@ -589,7 +589,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   const ctaEl     = document.getElementById('quoteCTA');
   if (!totalEl) return;
 
-  let basePrice = 497, baseLabel = 'Landing Page';
+  let basePrice = 200, baseLabel = 'Landing Page';
 
   function fmt(n) { return n.toLocaleString('pt-BR'); }
 
@@ -624,7 +624,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.quote-type').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      basePrice = parseInt(btn.dataset.base) || 497;
+      basePrice = parseInt(btn.dataset.base) || 200;
       baseLabel = btn.dataset.label || 'Projeto';
       update();
     });
