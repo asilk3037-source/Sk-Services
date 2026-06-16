@@ -160,19 +160,28 @@
   const links = document.getElementById('navLinks');
   if (!btn || !links) return;
 
-  btn.addEventListener('click', () => {
+  function closeMenu() {
+    links.classList.remove('open');
+    btn.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
     const open = links.classList.toggle('open');
     btn.classList.toggle('open', open);
     document.body.style.overflow = open ? 'hidden' : '';
   });
 
-  links.querySelectorAll('a').forEach(a =>
-    a.addEventListener('click', () => {
-      links.classList.remove('open');
-      btn.classList.remove('open');
-      document.body.style.overflow = '';
-    })
-  );
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  document.addEventListener('click', e => {
+    if (links.classList.contains('open') &&
+        !links.contains(e.target) &&
+        !btn.contains(e.target)) {
+      closeMenu();
+    }
+  });
 })();
 
 
@@ -235,7 +244,7 @@
 
 /* ── Active nav link on scroll ── */
 (function initActiveNav() {
-  const sections = ['services','portfolio','pricing','quote','stack','coming-soon','contact'];
+  const sections = ['services','portfolio','templates','pricing','quote','stack','coming-soon','contact'];
   const links = document.querySelectorAll('.nav-link');
 
   function onScroll() {
@@ -623,4 +632,23 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
   document.querySelectorAll('.quote-feat input').forEach(inp => inp.addEventListener('change', update));
   update();
+})();
+
+
+/* ── Templates gallery tab filter ── */
+(function initTemplates() {
+  const tabs  = document.querySelectorAll('.tpl-tab');
+  const cards = document.querySelectorAll('.tpl-card');
+  if (!tabs.length) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      cards.forEach(card => {
+        card.classList.toggle('tpl-hidden', filter !== 'all' && card.dataset.cat !== filter);
+      });
+    });
+  });
 })();
