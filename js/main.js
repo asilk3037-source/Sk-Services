@@ -235,7 +235,7 @@
 
 /* ── Active nav link on scroll ── */
 (function initActiveNav() {
-  const sections = ['services','portfolio','stack','contact'];
+  const sections = ['services','portfolio','pricing','coming-soon','stack','contact'];
   const links = document.querySelectorAll('.nav-link');
 
   function onScroll() {
