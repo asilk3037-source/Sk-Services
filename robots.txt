@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asilk3037-source.github.io/Sk-Services/sitemap.xml

@@ -15,8 +15,37 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <!-- EmailJS: preencha as credenciais em js/main.js após criar conta em emailjs.com -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <!-- Google Analytics: descomente e substitua G-XXXXXXXXXX pelo seu Measurement ID -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date()); gtag('config','G-XXXXXXXXXX');
+  </script>
+  -->
 </head>
 <body>
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="loader-box">
+      <svg width="80" height="80" viewBox="0 0 38 38" fill="none" class="loader-logo">
+        <defs>
+          <linearGradient id="lg-load" x1="0" y1="0" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#00d4ff"/><stop offset="1" stop-color="#8b5cf6"/>
+          </linearGradient>
+        </defs>
+        <polygon points="19,1 35.5,10.5 35.5,27.5 19,37 2.5,27.5 2.5,10.5"
+                 stroke="url(#lg-load)" stroke-width="1.5" fill="rgba(0,212,255,0.07)"/>
+        <text x="19" y="24" text-anchor="middle" font-family="Space Grotesk,sans-serif"
+              font-weight="700" font-size="13" fill="url(#lg-load)">SK</text>
+      </svg>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
 
   <!-- ═══════════════════════════════════════════
        NAVIGATION
@@ -51,6 +80,18 @@
         </li>
       </ul>
 
+      <button id="themeToggle" class="theme-toggle" aria-label="Alternar tema">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </svg>
+      </button>
       <button class="hamburger" id="hamburger" aria-label="Abrir menu">
         <span></span><span></span><span></span>
       </button>
@@ -285,6 +326,61 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
+       PROCESS
+  ═══════════════════════════════════════════ -->
+  <section id="process">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// como trabalho</span>
+        <h2>Do conceito à <span class="gradient-text">entrega</span></h2>
+        <p>Um processo claro e transparente do início ao fim do seu projeto</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-step reveal-up">
+          <div class="step-number">01</div>
+          <div class="step-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            </svg>
+          </div>
+          <h3>Briefing</h3>
+          <p>Entendo suas necessidades, objetivos e público-alvo. Uma conversa para alinharmos tudo antes de começar.</p>
+        </div>
+        <div class="process-step reveal-up" style="--delay:100ms">
+          <div class="step-number">02</div>
+          <div class="step-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/>
+            </svg>
+          </div>
+          <h3>Design</h3>
+          <p>Criamos o layout e a identidade visual do seu site com foco em estética, usabilidade e conversão.</p>
+        </div>
+        <div class="process-step reveal-up" style="--delay:200ms">
+          <div class="step-number">03</div>
+          <div class="step-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <h3>Desenvolvimento</h3>
+          <p>Codamos o site com as melhores tecnologias: rápido, responsivo, seguro e otimizado para SEO.</p>
+        </div>
+        <div class="process-step reveal-up" style="--delay:300ms">
+          <div class="step-number">04</div>
+          <div class="step-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h3>Entrega</h3>
+          <p>Deploy, testes em todos os dispositivos e suporte pós-entrega. Seu site no ar pronto para gerar resultado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
        PORTFOLIO
   ═══════════════════════════════════════════ -->
   <section id="portfolio">
@@ -480,6 +576,54 @@
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TESTIMONIALS
+  ═══════════════════════════════════════════ -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// depoimentos</span>
+        <h2>O que dizem os <span class="gradient-text">clientes</span></h2>
+        <p>Resultados reais de quem confiou no nosso trabalho</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal-up">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"A Aline transformou completamente minha presença online. O site ficou lindo, moderno e já no primeiro mês recebi vários contatos pelo WhatsApp do próprio site. Super recomendo!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="--av-color:#0ea5e9">MF</div>
+            <div>
+              <div class="author-name">Maria Fernanda Castro</div>
+              <div class="author-role">Proprietária · Clínica Estética</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal-up" style="--delay:100ms">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Precisava de um site para divulgar meus imóveis e o resultado superou todas as expectativas. Entrega rápida, comunicação excelente e o site carrega super rápido. Nota 10!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="--av-color:#10b981">RA</div>
+            <div>
+              <div class="author-name">Roberto Alves</div>
+              <div class="author-role">Corretor de Imóveis · BH</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal-up" style="--delay:200ms">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Profissional incrível! Criou minha loja virtual do zero, integrou os pagamentos e ainda me ensinou a atualizar os produtos. O suporte pós-entrega foi excepcional."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="--av-color:#8b5cf6">JP</div>
+            <div>
+              <div class="author-name">Juliana Pereira</div>
+              <div class="author-role">Empreendedora · E-commerce</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -831,6 +975,57 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
+       FAQ
+  ═══════════════════════════════════════════ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// faq</span>
+        <h2>Perguntas <span class="gradient-text">frequentes</span></h2>
+        <p>Respostas para as dúvidas mais comuns sobre os nossos serviços</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question">Quanto tempo leva para criar um site?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer"><p>Depende do projeto: uma Landing Page fica pronta em 5-7 dias, um Site Institucional leva 10-15 dias e um E-commerce de 20-30 dias. Prazos sempre combinados na proposta e cumpridos!</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question">Preciso fornecer o conteúdo (textos e fotos)?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer"><p>O conteúdo do seu negócio (textos, preços, fotos) deve ser fornecido por você. Mas não se preocupe: te oriento exatamente o que precisa e posso ajudar na redação dos textos se necessário.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question">O site vai funcionar no celular?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer"><p>Com certeza! Todos os sites são desenvolvidos mobile-first, ou seja, funcionam perfeitamente em smartphones, tablets e computadores. Mais de 70% dos acessos hoje vêm do celular.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question">Como funciona o processo de pagamento?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer"><p>Geralmente 50% na aprovação do projeto e 50% na entrega. Aceito Pix, transferência bancária e cartão de crédito. Para manutenção mensal, o pagamento é via Pix todo mês.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question">Tenho suporte após a entrega do site?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer"><p>Sim! Ofereço 30 dias de suporte gratuito após a entrega para ajustes e dúvidas. Depois desse período você pode contratar o plano de Manutenção Mensal para suporte contínuo.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question">Vocês fazem manutenção de sites feitos por outras pessoas?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer"><p>Sim! Faço manutenção e melhorias em sites existentes, independente de quem os criou. Basta compartilhar os acessos e analiso o que pode ser corrigido ou aprimorado.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
        FOOTER
   ═══════════════════════════════════════════ -->
   <footer id="footer">
@@ -862,6 +1057,9 @@
             </a>
             <a href="https://wa.me/5531992914959" target="_blank" aria-label="WhatsApp" class="social-link">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/aline-de-paula-martins-048497164" target="_blank" aria-label="LinkedIn" class="social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
           </div>
         </div>
