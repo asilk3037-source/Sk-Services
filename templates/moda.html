@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMÉ – Moda que define você</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Space Grotesk',sans-serif;background:#fafafa;color:#18181b;overflow-x:hidden}
+
+    .sk-badge{position:fixed;top:0;left:0;right:0;background:rgba(24,24,27,0.95);color:#a1a1aa;text-align:center;padding:8px;font-size:0.75rem;z-index:9999}
+    .sk-badge a{color:#a1a1aa;text-decoration:none;font-weight:600;transition:color 0.2s}
+    .sk-badge a:hover{color:#fff}
+
+    nav{position:fixed;top:32px;left:0;right:0;z-index:1000;padding:0 5%}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:16px 28px;background:rgba(250,250,250,0.92);backdrop-filter:blur(14px);border-radius:0;border-bottom:1px solid rgba(24,24,27,0.1)}
+    .logo{font-size:1.6rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#18181b}
+    .nav-links{display:flex;gap:28px;list-style:none}
+    .nav-links a{color:rgba(24,24,27,0.55);text-decoration:none;font-size:0.85rem;font-weight:400;letter-spacing:1px;text-transform:uppercase;transition:color 0.2s}
+    .nav-links a:hover{color:#18181b}
+    .nav-cta{background:#18181b;color:#fafafa!important;padding:10px 22px;font-weight:500!important;letter-spacing:1px;transition:background 0.2s!important}
+    .nav-cta:hover{background:#3f3f46!important}
+
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:140px 24px 80px;position:relative;overflow:hidden;background:#fafafa}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 50%,rgba(24,24,27,0.04) 0%,transparent 70%)}
+    .hero-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .hero-left{}
+    .hero-season{font-size:0.75rem;font-weight:300;letter-spacing:3px;text-transform:uppercase;color:rgba(24,24,27,0.4);margin-bottom:16px}
+    .hero h1{font-size:clamp(2.8rem,5vw,4.5rem);font-weight:700;line-height:1.05;margin-bottom:20px;letter-spacing:-2px;color:#18181b}
+    .hero-tagline{font-size:1.1rem;font-weight:300;color:rgba(24,24,27,0.5);line-height:1.7;margin-bottom:36px;max-width:400px}
+    .hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+    .btn-primary{background:#18181b;color:#fafafa;padding:14px 32px;font-weight:500;font-size:0.95rem;text-decoration:none;transition:all 0.25s;letter-spacing:0.5px}
+    .btn-primary:hover{background:#3f3f46;transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:#18181b;padding:14px 32px;font-weight:500;font-size:0.95rem;text-decoration:none;border:1px solid rgba(24,24,27,0.25);transition:all 0.25s;letter-spacing:0.5px}
+    .btn-outline:hover{border-color:#18181b;transform:translateY(-2px)}
+    .hero-perks{display:flex;gap:28px;flex-wrap:wrap}
+    .perk{display:flex;align-items:center;gap:8px;font-size:0.82rem;color:rgba(24,24,27,0.45);font-weight:400}
+    .perk-dot{width:6px;height:6px;border-radius:50%;background:#18181b;opacity:0.3}
+    .hero-right{position:relative}
+    .hero-img-placeholder{width:100%;aspect-ratio:3/4;background:linear-gradient(160deg,#e4e4e7 0%,#f4f4f5 50%,#e4e4e7 100%);border-radius:2px;display:flex;align-items:center;justify-content:center}
+    .hero-img-label{font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:rgba(24,24,27,0.3)}
+    .hero-img-badge{position:absolute;bottom:24px;left:-20px;background:#18181b;color:#fafafa;padding:12px 18px;font-size:0.78rem;font-weight:500;letter-spacing:0.5px}
+
+    .services{padding:90px 5%;background:#fff}
+    .services-inner{max-width:1200px;margin:0 auto}
+    .section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:20px}
+    .section-label{font-size:0.72rem;font-weight:400;letter-spacing:2.5px;text-transform:uppercase;color:rgba(24,24,27,0.4);margin-bottom:10px}
+    .section-title{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;letter-spacing:-0.5px;color:#18181b}
+    .view-all{font-size:0.82rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:rgba(24,24,27,0.5);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.2s}
+    .view-all:hover{color:#18181b}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px}
+    .card{background:#f4f4f5;padding:40px 32px;transition:all 0.3s;position:relative;overflow:hidden}
+    .card:hover{background:#e4e4e7}
+    .card-img{width:100%;height:200px;background:linear-gradient(135deg,#e4e4e7,#f4f4f5);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:3rem;margin-bottom:24px}
+    .card h3{font-size:1.1rem;font-weight:700;letter-spacing:-0.3px;margin-bottom:8px;color:#18181b}
+    .card p{color:rgba(24,24,27,0.5);font-size:0.88rem;line-height:1.7;margin-bottom:16px}
+    .card-link{font-size:0.78rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:#18181b;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap 0.2s}
+    .card-link:hover{gap:10px}
+
+    footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(24,24,27,0.08);color:rgba(24,24,27,0.3);font-size:0.78rem;letter-spacing:0.5px}
+    footer strong{color:#18181b}
+  </style>
+</head>
+<body>
+
+<div class="sk-badge">Modelo criado por <a href="../index.html">SK Services</a> · <a href="../index.html#templates">← Ver todos os modelos</a></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">LUMÉ</div>
+    <ul class="nav-links">
+      <li><a href="#">Coleções</a></li>
+      <li><a href="#">Acessórios</a></li>
+      <li><a href="#">Essentials</a></li>
+      <li><a href="#">Sale</a></li>
+      <li><a href="#" class="nav-cta">Ver Coleção</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-left">
+      <p class="hero-season">Coleção Primavera / Verão 2025</p>
+      <h1>A nova<br>coleção<br>chegou</h1>
+      <p class="hero-tagline">Peças que definem seu estilo com elegância atemporal e qualidade superior. Moda que é sua expressão.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-primary">Ver Coleção</a>
+        <a href="#" class="btn-outline">Novidades</a>
+      </div>
+      <div class="hero-perks">
+        <div class="perk"><span class="perk-dot"></span>Nova coleção</div>
+        <div class="perk"><span class="perk-dot"></span>Frete grátis acima de R$ 299</div>
+        <div class="perk"><span class="perk-dot"></span>Troca fácil em 30 dias</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-placeholder">
+        <span class="hero-img-label">Coleção SS25</span>
+      </div>
+      <div class="hero-img-badge">Nova Coleção → Disponível agora</div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="services-inner">
+    <div class="section-header">
+      <div>
+        <div class="section-label">Categorias</div>
+        <h2 class="section-title">Explore a coleção</h2>
+      </div>
+      <a href="#" class="view-all">Ver tudo →</a>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-img">👗</div>
+        <h3>Primavera / Verão</h3>
+        <p>Peças leves, coloridas e cheias de personalidade para os dias mais quentes. Tecidos premium que respiram com você.</p>
+        <a href="#" class="card-link">Explorar →</a>
+      </div>
+      <div class="card">
+        <div class="card-img">👜</div>
+        <h3>Acessórios</h3>
+        <p>Bolsas, cintos, óculos e joias selecionadas para complementar qualquer look com o toque final perfeito.</p>
+        <a href="#" class="card-link">Explorar →</a>
+      </div>
+      <div class="card">
+        <div class="card-img">🤍</div>
+        <h3>Essentials</h3>
+        <p>Os básicos que nunca saem de moda. Peças versáteis e atemporais que formam a base de qualquer guarda-roupa elegante.</p>
+        <a href="#" class="card-link">Explorar →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <strong>LUMÉ</strong>. Moda que define você. · Template por SK Services</p>
+</footer>
+
+</body>
+</html>

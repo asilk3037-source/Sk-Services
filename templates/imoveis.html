@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grand Imóveis – Seu lar dos sonhos está aqui</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Space Grotesk',sans-serif;background:#0e0b06;color:#f0e6c8;overflow-x:hidden}
+
+    .sk-badge{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,0.92);color:#a89060;text-align:center;padding:8px;font-size:0.75rem;z-index:9999}
+    .sk-badge a{color:#d4af37;text-decoration:none;font-weight:600}
+    .sk-badge a:hover{text-decoration:underline}
+
+    nav{position:fixed;top:32px;left:0;right:0;z-index:1000;padding:0 5%}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:16px 28px;background:rgba(14,11,6,0.9);backdrop-filter:blur(14px);border-radius:0;border-bottom:1px solid rgba(212,175,55,0.2)}
+    .logo{font-size:1.4rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#f0e6c8}
+    .logo span{color:#d4af37}
+    .nav-links{display:flex;gap:26px;list-style:none}
+    .nav-links a{color:rgba(240,230,200,0.55);text-decoration:none;font-size:0.88rem;font-weight:400;letter-spacing:0.5px;transition:color 0.2s}
+    .nav-links a:hover{color:#d4af37}
+    .nav-cta{border:1px solid #d4af37;color:#d4af37!important;padding:9px 22px;font-weight:600!important;letter-spacing:0.5px;transition:all 0.2s!important}
+    .nav-cta:hover{background:#d4af37!important;color:#0e0b06!important}
+
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:140px 24px 60px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(212,175,55,0.07) 0%,transparent 50%),radial-gradient(ellipse 70% 70% at 80% 50%,rgba(212,175,55,0.05) 0%,transparent 70%)}
+    .hero-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.2fr 0.8fr;gap:60px;align-items:center}
+    .hero-tag{font-size:0.72rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#d4af37;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+    .hero-tag::before{content:'';width:28px;height:1px;background:#d4af37}
+    .hero h1{font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:700;line-height:1.12;margin-bottom:20px;color:#f0e6c8;letter-spacing:-0.5px}
+    .hero h1 em{font-style:normal;color:#d4af37}
+    .hero-sub{font-size:1rem;color:rgba(240,230,200,0.5);line-height:1.75;margin-bottom:36px;max-width:480px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+    .btn-primary{background:#d4af37;color:#0e0b06;padding:13px 28px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.25s}
+    .btn-primary:hover{background:#b8960c;transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:#f0e6c8;padding:13px 28px;font-weight:600;font-size:0.95rem;text-decoration:none;border:1px solid rgba(240,230,200,0.2);transition:all 0.25s}
+    .btn-outline:hover{border-color:#d4af37;color:#d4af37;transform:translateY(-2px)}
+    .hero-search{background:rgba(212,175,55,0.05);border:1px solid rgba(212,175,55,0.15);border-radius:10px;padding:20px 24px}
+    .search-label{font-size:0.75rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#d4af37;margin-bottom:12px}
+    .search-row{display:flex;gap:10px;flex-wrap:wrap}
+    .search-field{flex:1;min-width:120px;background:rgba(255,255,255,0.05);border:1px solid rgba(212,175,55,0.15);border-radius:6px;padding:10px 14px;color:#f0e6c8;font-size:0.88rem;font-family:inherit;outline:none}
+    .search-field::placeholder{color:rgba(240,230,200,0.3)}
+    .search-btn{background:#d4af37;color:#0e0b06;border:none;padding:10px 20px;border-radius:6px;font-weight:700;font-size:0.88rem;font-family:inherit;cursor:pointer;white-space:nowrap;transition:background 0.2s}
+    .search-btn:hover{background:#b8960c}
+    .stats-col{display:flex;flex-direction:column;gap:20px;padding:28px;background:rgba(212,175,55,0.04);border:1px solid rgba(212,175,55,0.12)}
+    .stat{border-left:2px solid rgba(212,175,55,0.3);padding-left:16px}
+    .stat-num{font-size:2rem;font-weight:700;color:#d4af37;letter-spacing:-1px}
+    .stat-label{font-size:0.82rem;color:rgba(240,230,200,0.45);margin-top:4px}
+
+    .services{padding:90px 5%;background:#0b0802}
+    .services-inner{max-width:1200px;margin:0 auto}
+    .section-label{font-size:0.72rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#d4af37;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+    .section-label::before{content:'';width:24px;height:1px;background:#d4af37}
+    .section-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;letter-spacing:-0.3px;margin-bottom:14px;color:#f0e6c8}
+    .section-sub{color:rgba(240,230,200,0.45);font-size:0.95rem;max-width:460px;line-height:1.75;margin-bottom:52px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+    .card{background:rgba(255,255,255,0.02);border:1px solid rgba(212,175,55,0.1);padding:40px 28px;transition:all 0.3s;position:relative}
+    .card::after{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,#d4af37,#b8960c);opacity:0;transition:opacity 0.3s}
+    .card:hover::after{opacity:1}
+    .card:hover{border-color:rgba(212,175,55,0.2);background:rgba(212,175,55,0.03)}
+    .card-icon{font-size:2rem;margin-bottom:16px}
+    .card-num{font-size:3rem;font-weight:700;color:rgba(212,175,55,0.08);position:absolute;top:16px;right:24px;letter-spacing:-2px}
+    .card h3{font-size:1.2rem;font-weight:700;margin-bottom:10px;color:#f0e6c8}
+    .card p{color:rgba(240,230,200,0.45);font-size:0.9rem;line-height:1.7;margin-bottom:20px}
+    .card-features{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+    .feature{font-size:0.82rem;color:rgba(240,230,200,0.5);display:flex;align-items:center;gap:8px}
+    .feature::before{content:'—';color:#d4af37;font-weight:600}
+    .card-link{color:#d4af37;font-size:0.85rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap 0.2s}
+    .card-link:hover{gap:10px}
+
+    footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(212,175,55,0.1);color:rgba(240,230,200,0.25);font-size:0.82rem}
+    footer strong{color:#d4af37}
+  </style>
+</head>
+<body>
+
+<div class="sk-badge">Modelo criado por <a href="../index.html">SK Services</a> · <a href="../index.html#templates">← Ver todos os modelos</a></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Grand <span>Imóveis</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Comprar</a></li>
+      <li><a href="#">Alugar</a></li>
+      <li><a href="#">Investir</a></li>
+      <li><a href="#">Avalie seu Imóvel</a></li>
+      <li><a href="#" class="nav-cta">Buscar Imóveis</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div>
+      <div class="hero-tag">Imobiliária Premium</div>
+      <h1>Encontre o imóvel<br>perfeito <em>para você</em></h1>
+      <p class="hero-sub">Apartamentos, casas, comerciais e terrenos. Uma equipe completa de corretores especializados para encontrar exatamente o que você busca.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-primary">Buscar Imóveis</a>
+        <a href="#" class="btn-outline">Avalie seu Imóvel</a>
+      </div>
+      <div class="hero-search">
+        <div class="search-label">Busca Rápida</div>
+        <div class="search-row">
+          <input class="search-field" type="text" placeholder="Cidade ou bairro">
+          <input class="search-field" type="text" placeholder="Tipo (Casa, Apto...)">
+          <button class="search-btn">Buscar →</button>
+        </div>
+      </div>
+    </div>
+    <div class="stats-col">
+      <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Imóveis disponíveis</div></div>
+      <div class="stat"><div class="stat-num">20 anos</div><div class="stat-label">De atuação no mercado</div></div>
+      <div class="stat"><div class="stat-num">10.000+</div><div class="stat-label">Famílias atendidas</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="services-inner">
+    <div class="section-label">Nossos Serviços</div>
+    <h2 class="section-title">Como podemos<br>te ajudar</h2>
+    <p class="section-sub">Da busca ao contrato, cuidamos de cada etapa para que você tenha total segurança e tranquilidade.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-num">01</div>
+        <div class="card-icon">🏡</div>
+        <h3>Comprar</h3>
+        <p>Encontre o imóvel dos seus sonhos com a assessoria completa de nossos corretores, do primeiro contato até a escritura.</p>
+        <div class="card-features">
+          <span class="feature">Financiamento facilitado</span>
+          <span class="feature">Assessoria jurídica</span>
+          <span class="feature">Vistoria especializada</span>
+        </div>
+        <a href="#" class="card-link">Ver imóveis →</a>
+      </div>
+      <div class="card">
+        <div class="card-num">02</div>
+        <div class="card-icon">🔑</div>
+        <h3>Alugar</h3>
+        <p>Processo simplificado, garantias flexíveis e gestão completa do contrato. Encontre seu aluguel ideal com segurança.</p>
+        <div class="card-features">
+          <span class="feature">Garantias flexíveis</span>
+          <span class="feature">Contrato digital</span>
+          <span class="feature">Gestão completa</span>
+        </div>
+        <a href="#" class="card-link">Ver imóveis →</a>
+      </div>
+      <div class="card">
+        <div class="card-num">03</div>
+        <div class="card-icon">📈</div>
+        <h3>Investir</h3>
+        <p>Análise de mercado, localização estratégica e projeção de rentabilidade. Invista com inteligência no mercado imobiliário.</p>
+        <div class="card-features">
+          <span class="feature">Análise de rentabilidade</span>
+          <span class="feature">Portfólio premium</span>
+          <span class="feature">Consultoria exclusiva</span>
+        </div>
+        <a href="#" class="card-link">Saiba mais →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <strong>Grand Imóveis</strong>. Seu lar dos sonhos está aqui. · Template por SK Services</p>
+</footer>
+
+</body>
+</html>

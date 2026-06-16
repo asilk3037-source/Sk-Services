@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetCare – Porque eles merecem o melhor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Space Grotesk',sans-serif;background:#fffbf8;color:#1c1917;overflow-x:hidden}
+
+    .sk-badge{position:fixed;top:0;left:0;right:0;background:rgba(28,25,23,0.92);color:#a8a29e;text-align:center;padding:8px;font-size:0.75rem;z-index:9999}
+    .sk-badge a{color:#fb923c;text-decoration:none;font-weight:600}
+    .sk-badge a:hover{text-decoration:underline}
+
+    nav{position:fixed;top:32px;left:0;right:0;z-index:1000;padding:0 5%}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:14px 28px;background:rgba(255,251,248,0.92);backdrop-filter:blur(14px);border-radius:16px;border:1px solid rgba(234,88,12,0.12);box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+    .logo{font-size:1.4rem;font-weight:700;color:#1c1917}
+    .logo em{font-style:normal;color:#ea580c}
+    .logo span{font-size:1.2rem}
+    .nav-links{display:flex;gap:24px;list-style:none}
+    .nav-links a{color:rgba(28,25,23,0.55);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s}
+    .nav-links a:hover{color:#ea580c}
+    .nav-cta{background:#ea580c;color:#fff!important;padding:10px 22px;border-radius:10px;font-weight:700!important;transition:background 0.2s!important}
+    .nav-cta:hover{background:#c2410c!important}
+
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:140px 24px 80px;position:relative;overflow:hidden;background:linear-gradient(160deg,#fff7f0 0%,#fffbf8 50%,#fff 100%)}
+    .hero::before{content:'';position:absolute;right:-50px;top:80px;width:450px;height:450px;border-radius:50%;background:radial-gradient(circle,rgba(234,88,12,0.07) 0%,transparent 65%);pointer-events:none}
+    .hero::after{content:'';position:absolute;left:-80px;bottom:100px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(251,146,60,0.06) 0%,transparent 65%);pointer-events:none}
+    .hero-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .hero-left{}
+    .hero-tag{display:inline-flex;align-items:center;gap:8px;background:#fff1e8;border:1px solid rgba(234,88,12,0.2);color:#ea580c;padding:6px 16px;border-radius:20px;font-size:0.78rem;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:24px}
+    .hero h1{font-size:clamp(2.4rem,4.5vw,3.6rem);font-weight:700;line-height:1.12;margin-bottom:20px;color:#1c1917;letter-spacing:-1px}
+    .hero h1 em{font-style:normal;color:#ea580c}
+    .hero-sub{font-size:1rem;color:rgba(28,25,23,0.5);line-height:1.75;margin-bottom:36px;max-width:460px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+    .btn-primary{background:#ea580c;color:#fff;padding:13px 28px;border-radius:10px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.25s;box-shadow:0 4px 18px rgba(234,88,12,0.25)}
+    .btn-primary:hover{background:#c2410c;transform:translateY(-2px);box-shadow:0 6px 24px rgba(234,88,12,0.35)}
+    .btn-outline{background:transparent;color:#1c1917;padding:13px 28px;border-radius:10px;font-weight:600;font-size:0.95rem;text-decoration:none;border:2px solid rgba(28,25,23,0.15);transition:all 0.25s}
+    .btn-outline:hover{border-color:#ea580c;color:#ea580c;transform:translateY(-2px)}
+    .trust-badges{display:flex;gap:16px;flex-wrap:wrap}
+    .badge{display:flex;align-items:center;gap:8px;background:#fff1e8;border-radius:8px;padding:8px 14px;font-size:0.82rem;font-weight:500;color:#78350f}
+    .badge-icon{font-size:1rem}
+    .hero-right{position:relative}
+    .hero-visual{width:100%;background:linear-gradient(135deg,#fff1e8,#ffe4c9);border-radius:24px;padding:36px;display:flex;flex-direction:column;gap:16px;box-shadow:0 8px 40px rgba(234,88,12,0.1)}
+    .pet-card{background:#fff;border-radius:14px;padding:18px;box-shadow:0 2px 12px rgba(0,0,0,0.06);display:flex;align-items:center;gap:14px}
+    .pet-avatar{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#fed7aa,#fdba74);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+    .pet-info h4{font-size:0.9rem;font-weight:700;color:#1c1917;margin-bottom:3px}
+    .pet-info p{font-size:0.78rem;color:rgba(28,25,23,0.45)}
+    .pet-status{margin-left:auto;background:#dcfce7;color:#166534;font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:6px}
+    .stats-row{display:flex;gap:12px}
+    .mini-stat{flex:1;background:#fff;border-radius:10px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+    .mini-num{font-size:1.3rem;font-weight:700;color:#ea580c}
+    .mini-label{font-size:0.72rem;color:rgba(28,25,23,0.4);margin-top:3px}
+
+    .services{padding:90px 5%;background:#fff}
+    .services-inner{max-width:1200px;margin:0 auto}
+    .section-label{font-size:0.78rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#ea580c;margin-bottom:12px}
+    .section-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;letter-spacing:-0.5px;margin-bottom:14px;color:#1c1917}
+    .section-sub{color:rgba(28,25,23,0.45);font-size:0.95rem;max-width:460px;line-height:1.75;margin-bottom:52px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+    .card{background:#fffbf8;border:1px solid rgba(234,88,12,0.1);border-radius:20px;padding:36px 28px;transition:all 0.3s;position:relative;overflow:hidden}
+    .card:hover{border-color:rgba(234,88,12,0.25);transform:translateY(-4px);box-shadow:0 12px 36px rgba(234,88,12,0.1)}
+    .card-icon{width:56px;height:56px;border-radius:16px;background:#fff1e8;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px}
+    .card h3{font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#1c1917}
+    .card p{color:rgba(28,25,23,0.5);font-size:0.9rem;line-height:1.7;margin-bottom:16px}
+    .card-price{font-size:0.85rem;color:#ea580c;font-weight:600}
+    .card-link{display:inline-flex;align-items:center;gap:6px;background:#ea580c;color:#fff;font-size:0.85rem;font-weight:600;padding:9px 18px;border-radius:8px;text-decoration:none;margin-top:12px;transition:background 0.2s}
+    .card-link:hover{background:#c2410c}
+
+    footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(234,88,12,0.1);color:rgba(28,25,23,0.35);font-size:0.82rem}
+    footer strong{color:#ea580c}
+  </style>
+</head>
+<body>
+
+<div class="sk-badge">Modelo criado por <a href="../index.html">SK Services</a> · <a href="../index.html#templates">← Ver todos os modelos</a></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo"><em>Pet</em>Care <span>🐾</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Banho & Tosa</a></li>
+      <li><a href="#">Veterinária</a></li>
+      <li><a href="#">Loja</a></li>
+      <li><a href="#">Hotel Pet</a></li>
+      <li><a href="#" class="nav-cta">Agendar Banho</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-left">
+      <span class="hero-tag">🐾 Pet Shop & Veterinária</span>
+      <h1>O cuidado que seu pet<br>merece <em>todo dia</em></h1>
+      <p class="hero-sub">Banho, tosa, consultas veterinárias e os melhores produtos para o seu amigo de quatro patas. Tudo em um só lugar, com amor e profissionalismo.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-primary">Agendar Banho</a>
+        <a href="#" class="btn-outline">Ver Produtos</a>
+      </div>
+      <div class="trust-badges">
+        <div class="badge"><span class="badge-icon">⭐</span> 5★ avaliações</div>
+        <div class="badge"><span class="badge-icon">🏥</span> Vet 24h</div>
+        <div class="badge"><span class="badge-icon">🚗</span> Busca e leva</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-visual">
+        <div class="pet-card">
+          <div class="pet-avatar">🐶</div>
+          <div class="pet-info"><h4>Toby – Golden Retriever</h4><p>Banho + Tosa agendado para amanhã</p></div>
+          <span class="pet-status">Confirmado</span>
+        </div>
+        <div class="pet-card">
+          <div class="pet-avatar">🐱</div>
+          <div class="pet-info"><h4>Luna – Persa</h4><p>Consulta veterinária hoje às 15h</p></div>
+          <span class="pet-status">Hoje</span>
+        </div>
+        <div class="stats-row">
+          <div class="mini-stat"><div class="mini-num">5k+</div><div class="mini-label">Pets atendidos</div></div>
+          <div class="mini-stat"><div class="mini-num">10 anos</div><div class="mini-label">Experiência</div></div>
+          <div class="mini-stat"><div class="mini-num">5★</div><div class="mini-label">Avaliações</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="services-inner">
+    <p class="section-label">Nossos Serviços</p>
+    <h2 class="section-title">Tudo que seu pet<br>precisa aqui</h2>
+    <p class="section-sub">Serviços completos de cuidado animal com profissionais apaixonados e certificados para tratar seu pet como ele merece.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🛁</div>
+        <h3>Banho & Tosa</h3>
+        <p>Banho com produtos premium, tosa estilizada e hidratação para que seu pet fique cheiroso, bonito e confortável por mais tempo.</p>
+        <p class="card-price">A partir de R$ 49,90</p>
+        <a href="#" class="card-link">Agendar agora →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">🩺</div>
+        <h3>Veterinária</h3>
+        <p>Consultas de rotina, vacinação, exames laboratoriais e cirurgias. Médicos veterinários especializados em cães e gatos.</p>
+        <p class="card-price">Consulta a partir de R$ 89,00</p>
+        <a href="#" class="card-link">Agendar consulta →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛍️</div>
+        <h3>Loja de Produtos</h3>
+        <p>Rações premium, brinquedos, acessórios, coleiras, caminhas e tudo que seu pet precisa para uma vida feliz e saudável.</p>
+        <p class="card-price">Frete grátis acima de R$ 150</p>
+        <a href="#" class="card-link">Ver produtos →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <strong>PetCare</strong>. Porque eles merecem o melhor. · Template por SK Services</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechPro Store – Tecnologia que conecta você</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Space Grotesk',sans-serif;background:#030312;color:#e2e8f0;overflow-x:hidden}
+
+    .sk-badge{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,0.9);color:#94a3b8;text-align:center;padding:8px;font-size:0.75rem;z-index:9999}
+    .sk-badge a{color:#3b82f6;text-decoration:none;font-weight:600}
+    .sk-badge a:hover{text-decoration:underline}
+
+    nav{position:fixed;top:32px;left:0;right:0;z-index:1000;padding:0 5%}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:14px 28px;background:rgba(3,3,18,0.88);backdrop-filter:blur(14px);border-radius:14px;border:1px solid rgba(59,130,246,0.15)}
+    .logo{font-size:1.3rem;font-weight:700;color:#e2e8f0}
+    .logo em{font-style:normal;color:#3b82f6}
+    .logo sup{font-size:0.6rem;font-weight:500;color:#6366f1;vertical-align:super;letter-spacing:1px}
+    .nav-links{display:flex;gap:24px;list-style:none}
+    .nav-links a{color:rgba(226,232,240,0.6);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s}
+    .nav-links a:hover{color:#3b82f6}
+    .nav-cta{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff!important;padding:9px 20px;border-radius:8px;font-weight:600!important;transition:opacity 0.2s!important}
+    .nav-cta:hover{opacity:0.85!important}
+    .nav-cart{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);color:#3b82f6!important;padding:9px 16px;border-radius:8px;font-weight:600!important}
+
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 30%,rgba(59,130,246,0.12) 0%,rgba(99,102,241,0.06) 40%,transparent 70%)}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.03) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
+    .hero-glow{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,0.08) 0%,transparent 65%);top:20%;left:50%;transform:translateX(-50%);pointer-events:none}
+    .hero-content{position:relative;z-index:1;max-width:820px;margin:0 auto}
+    .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.22);color:#3b82f6;padding:6px 16px;border-radius:20px;font-size:0.78rem;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:24px}
+    .hero-tag-dot{width:6px;height:6px;border-radius:50%;background:#3b82f6;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+    .hero h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:700;line-height:1.1;margin-bottom:20px;letter-spacing:-1px}
+    .hero h1 em{font-style:normal;background:linear-gradient(135deg,#3b82f6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-sub{font-size:1.1rem;color:rgba(226,232,240,0.55);max-width:540px;margin:0 auto 36px;line-height:1.7}
+    .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:52px}
+    .btn-primary{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff;padding:14px 32px;border-radius:10px;font-weight:700;font-size:1rem;text-decoration:none;transition:all 0.25s;box-shadow:0 4px 24px rgba(59,130,246,0.3)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(59,130,246,0.4)}
+    .btn-outline{background:transparent;color:#e2e8f0;padding:14px 32px;border-radius:10px;font-weight:600;font-size:1rem;text-decoration:none;border:2px solid rgba(99,102,241,0.3);transition:all 0.25s}
+    .btn-outline:hover{border-color:#6366f1;color:#a5b4fc;transform:translateY(-2px)}
+    .stats-bar{display:flex;gap:0;justify-content:center;background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.12);border-radius:12px;overflow:hidden;max-width:600px;margin:0 auto}
+    .stat{flex:1;text-align:center;padding:18px 16px;border-right:1px solid rgba(59,130,246,0.1)}
+    .stat:last-child{border-right:none}
+    .stat-num{font-size:1.4rem;font-weight:700;color:#3b82f6}
+    .stat-label{font-size:0.78rem;color:rgba(226,232,240,0.4);margin-top:4px}
+
+    .services{padding:90px 5%;background:#050518}
+    .services-inner{max-width:1200px;margin:0 auto}
+    .section-label{font-size:0.78rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#3b82f6;margin-bottom:12px}
+    .section-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;letter-spacing:-0.5px;margin-bottom:14px}
+    .section-sub{color:rgba(226,232,240,0.45);font-size:0.95rem;max-width:460px;line-height:1.7;margin-bottom:52px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+    .card{background:rgba(255,255,255,0.02);border:1px solid rgba(59,130,246,0.1);border-radius:16px;padding:36px 28px;transition:all 0.3s;position:relative;overflow:hidden}
+    .card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#3b82f6,#6366f1);opacity:0;transition:opacity 0.3s}
+    .card:hover::before{opacity:1}
+    .card:hover{border-color:rgba(59,130,246,0.25);transform:translateY(-4px);background:rgba(59,130,246,0.04)}
+    .card-icon{width:52px;height:52px;border-radius:12px;background:rgba(59,130,246,0.1);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px}
+    .card h3{font-size:1.2rem;font-weight:700;margin-bottom:10px}
+    .card p{color:rgba(226,232,240,0.5);font-size:0.9rem;line-height:1.7;margin-bottom:20px}
+    .card-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .card-btn{background:rgba(59,130,246,0.1);color:#3b82f6;font-size:0.8rem;font-weight:600;padding:6px 14px;border-radius:6px;text-decoration:none;transition:background 0.2s}
+    .card-btn:hover{background:rgba(59,130,246,0.2)}
+    .card-btn.accent{background:linear-gradient(135deg,rgba(59,130,246,0.15),rgba(99,102,241,0.15));color:#a5b4fc}
+
+    footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(59,130,246,0.08);color:rgba(226,232,240,0.3);font-size:0.82rem}
+    footer strong{color:#3b82f6}
+  </style>
+</head>
+<body>
+
+<div class="sk-badge">Modelo criado por <a href="../index.html">SK Services</a> · <a href="../index.html#templates">← Ver todos os modelos</a></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo"><em>TechPro</em> Store<sup>®</sup></div>
+    <ul class="nav-links">
+      <li><a href="#">Smartphones</a></li>
+      <li><a href="#">Notebooks</a></li>
+      <li><a href="#">Periféricos</a></li>
+      <li><a href="#">Ofertas</a></li>
+      <li><a href="#" class="nav-cart">🛒 Carrinho</a></li>
+      <li><a href="#" class="nav-cta">Ver Produtos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <span class="hero-tag"><span class="hero-tag-dot"></span> Loja de Tecnologia</span>
+    <h1>Os melhores produtos tech<br><em>com o melhor preço</em></h1>
+    <p class="hero-sub">Smartphones, notebooks, periféricos e muito mais. Milhares de produtos selecionados, entrega rápida e garantia assegurada em tudo.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-primary">Ver Produtos</a>
+      <a href="#" class="btn-outline">Ofertas do Dia</a>
+    </div>
+    <div class="stats-bar">
+      <div class="stat"><div class="stat-num">50k+</div><div class="stat-label">Produtos</div></div>
+      <div class="stat"><div class="stat-num">24h</div><div class="stat-label">Entrega</div></div>
+      <div class="stat"><div class="stat-num">1 ano</div><div class="stat-label">Garantia</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="services-inner">
+    <p class="section-label">Categorias em Destaque</p>
+    <h2 class="section-title">Tecnologia para<br>cada necessidade</h2>
+    <p class="section-sub">Curadoria dos melhores produtos de cada categoria com avaliações reais e suporte especializado.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">📱</div>
+        <h3>Smartphones</h3>
+        <p>Os últimos lançamentos da Apple, Samsung, Motorola e muito mais. Câmeras avançadas, baterias poderosas e desempenho superior.</p>
+        <div class="card-actions">
+          <a href="#" class="card-btn">Ver modelos</a>
+          <a href="#" class="card-btn accent">Lançamentos</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">💻</div>
+        <h3>Notebooks</h3>
+        <p>Para trabalho, estudo ou jogos — temos o notebook ideal para você. Processadores de última geração com o melhor custo-benefício.</p>
+        <div class="card-actions">
+          <a href="#" class="card-btn">Ver modelos</a>
+          <a href="#" class="card-btn accent">Gamer</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🖱️</div>
+        <h3>Periféricos & Acessórios</h3>
+        <p>Teclados mecânicos, mouses, headsets, monitores e cabos. Complete seu setup com os melhores acessórios do mercado.</p>
+        <div class="card-actions">
+          <a href="#" class="card-btn">Ver tudo</a>
+          <a href="#" class="card-btn accent">Setup Gamer</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <strong>TechPro Store</strong>. Tecnologia que conecta você. · Template por SK Services</p>
+</footer>
+
+</body>
+</html>

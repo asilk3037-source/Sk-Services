@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloommé Beauty – Realce sua beleza natural</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Space Grotesk',sans-serif;background:#12020a;color:#fff;overflow-x:hidden}
+
+    .sk-badge{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,0.88);color:#ccc;text-align:center;padding:8px;font-size:0.75rem;z-index:9999}
+    .sk-badge a{color:#ff6b9d;text-decoration:none;font-weight:600}
+    .sk-badge a:hover{text-decoration:underline}
+
+    nav{position:fixed;top:32px;left:0;right:0;z-index:1000;padding:0 5%}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:16px 28px;background:rgba(18,2,10,0.85);backdrop-filter:blur(12px);border-radius:14px;border:1px solid rgba(255,107,157,0.18)}
+    .logo{font-size:1.4rem;font-weight:700;color:#ff6b9d;letter-spacing:-0.5px}
+    .logo span{color:#fff}
+    .nav-links{display:flex;gap:28px;list-style:none}
+    .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s}
+    .nav-links a:hover{color:#ff6b9d}
+    .nav-cta{background:#ff6b9d;color:#12020a!important;padding:10px 22px;border-radius:8px;font-weight:600!important;transition:background 0.2s!important}
+    .nav-cta:hover{background:#c44569!important;color:#fff!important}
+
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(196,69,105,0.25) 0%,rgba(255,107,157,0.08) 40%,transparent 70%)}
+    .hero::after{content:'';position:absolute;top:-200px;right:-200px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,157,0.12) 0%,transparent 70%);pointer-events:none}
+    .hero-content{position:relative;z-index:1;max-width:760px;margin:0 auto}
+    .hero-tag{display:inline-block;background:rgba(255,107,157,0.12);border:1px solid rgba(255,107,157,0.3);color:#ff6b9d;padding:6px 18px;border-radius:20px;font-size:0.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px}
+    .hero h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:700;line-height:1.15;margin-bottom:20px;letter-spacing:-1px}
+    .hero h1 em{font-style:normal;color:#ff6b9d}
+    .hero-sub{font-size:1.15rem;color:rgba(255,255,255,0.65);max-width:540px;margin:0 auto 36px;line-height:1.7}
+    .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .btn-primary{background:#ff6b9d;color:#12020a;padding:14px 32px;border-radius:10px;font-weight:700;font-size:1rem;text-decoration:none;transition:all 0.25s;border:2px solid #ff6b9d}
+    .btn-primary:hover{background:#c44569;border-color:#c44569;color:#fff;transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:#fff;padding:14px 32px;border-radius:10px;font-weight:600;font-size:1rem;text-decoration:none;border:2px solid rgba(255,255,255,0.25);transition:all 0.25s}
+    .btn-outline:hover{border-color:#ff6b9d;color:#ff6b9d;transform:translateY(-2px)}
+    .hero-dots{display:flex;gap:8px;justify-content:center;margin-top:48px}
+    .hero-dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,107,157,0.3)}
+    .hero-dots span.active{background:#ff6b9d;width:24px;border-radius:4px}
+
+    .services{padding:90px 5%;background:#0d0108}
+    .services-inner{max-width:1200px;margin:0 auto}
+    .section-label{font-size:0.8rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#ff6b9d;margin-bottom:12px}
+    .section-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;letter-spacing:-0.5px;margin-bottom:16px}
+    .section-sub{color:rgba(255,255,255,0.55);font-size:1rem;max-width:480px;line-height:1.7;margin-bottom:56px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+    .card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,107,157,0.12);border-radius:16px;padding:36px 28px;transition:all 0.3s;position:relative;overflow:hidden}
+    .card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,107,157,0.06) 0%,transparent 60%);opacity:0;transition:opacity 0.3s}
+    .card:hover{border-color:rgba(255,107,157,0.35);transform:translateY(-4px)}
+    .card:hover::before{opacity:1}
+    .card-icon{width:52px;height:52px;border-radius:12px;background:rgba(255,107,157,0.12);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px}
+    .card h3{font-size:1.2rem;font-weight:700;margin-bottom:10px;color:#fff}
+    .card p{color:rgba(255,255,255,0.55);font-size:0.92rem;line-height:1.7}
+    .card-link{display:inline-flex;align-items:center;gap:6px;color:#ff6b9d;font-size:0.88rem;font-weight:600;margin-top:20px;text-decoration:none;transition:gap 0.2s}
+    .card-link:hover{gap:10px}
+
+    footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(255,107,157,0.1);color:rgba(255,255,255,0.3);font-size:0.82rem}
+    footer strong{color:#ff6b9d}
+  </style>
+</head>
+<body>
+
+<div class="sk-badge">Modelo criado por <a href="../index.html">SK Services</a> · <a href="../index.html#templates">← Ver todos os modelos</a></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Bloom<span>mé</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Tratamentos</a></li>
+      <li><a href="#">Maquiagem</a></li>
+      <li><a href="#">Skincare</a></li>
+      <li><a href="#">Sobre</a></li>
+      <li><a href="#" class="nav-cta">Agendar</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-tag">✦ Estúdio de Beleza Premium</span>
+    <h1>Desperte a sua beleza<br><em>mais radiante</em></h1>
+    <p class="hero-sub">Tratamentos exclusivos que realçam o que há de melhor em você. Profissionais especializadas, produtos premium e uma experiência única de cuidado.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-primary">Ver Tratamentos</a>
+      <a href="#" class="btn-outline">Agendar Consulta</a>
+    </div>
+    <div class="hero-dots">
+      <span class="active"></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="services-inner">
+    <p class="section-label">Nossos Serviços</p>
+    <h2 class="section-title">Tudo que você precisa<br>para se sentir incrível</h2>
+    <p class="section-sub">Cada tratamento é personalizado para realçar sua beleza única com técnicas de última geração.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🌸</div>
+        <h3>Tratamentos Faciais</h3>
+        <p>Protocolos avançados de rejuvenescimento, hidratação profunda e limpeza de pele com tecnologia de ponta e ingredientes premium.</p>
+        <a href="#" class="card-link">Saiba mais →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">💄</div>
+        <h3>Maquiagem Profissional</h3>
+        <p>Make para eventos, ensaios fotográficos, casamentos e ocasiões especiais. Técnicas que duram o dia todo com acabamento impecável.</p>
+        <a href="#" class="card-link">Saiba mais →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">✨</div>
+        <h3>Skincare Personalizado</h3>
+        <p>Rotinas completas de cuidados com a pele desenvolvidas especialmente para o seu tipo e necessidades. Pele saudável todos os dias.</p>
+        <a href="#" class="card-link">Saiba mais →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <strong>Bloommé Beauty</strong>. Realce sua beleza natural. · Template por SK Services</p>
+</footer>
+
+</body>
+</html>

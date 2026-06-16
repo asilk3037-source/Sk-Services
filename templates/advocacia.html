@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ferreira & Associados – Advocacia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Space Grotesk',sans-serif;background:#060f1e;color:#e8e8e8;overflow-x:hidden}
+
+    .sk-badge{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,0.9);color:#aaa;text-align:center;padding:8px;font-size:0.75rem;z-index:9999}
+    .sk-badge a{color:#c9a82c;text-decoration:none;font-weight:600}
+    .sk-badge a:hover{text-decoration:underline}
+
+    nav{position:fixed;top:32px;left:0;right:0;z-index:1000;padding:0 5%}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:16px 28px;background:rgba(6,15,30,0.9);backdrop-filter:blur(14px);border-radius:4px;border-bottom:2px solid rgba(201,168,44,0.3)}
+    .logo{font-size:1.1rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#e8e8e8}
+    .logo span{color:#c9a82c}
+    .nav-links{display:flex;gap:28px;list-style:none}
+    .nav-links a{color:rgba(232,232,232,0.7);text-decoration:none;font-size:0.88rem;font-weight:400;letter-spacing:0.5px;transition:color 0.2s}
+    .nav-links a:hover{color:#c9a82c}
+    .nav-cta{border:1px solid #c9a82c;color:#c9a82c!important;padding:9px 22px;font-weight:600!important;letter-spacing:0.5px;transition:all 0.2s!important}
+    .nav-cta:hover{background:#c9a82c!important;color:#060f1e!important}
+
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:140px 24px 80px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(201,168,44,0.06) 0%,transparent 50%),radial-gradient(ellipse 70% 60% at 20% 60%,rgba(201,168,44,0.05) 0%,transparent 70%)}
+    .hero-line{position:absolute;left:0;top:50%;height:1px;width:100%;background:linear-gradient(90deg,transparent,rgba(201,168,44,0.15),transparent);pointer-events:none}
+    .hero-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .hero-left{}
+    .hero-tag{font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#c9a82c;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+    .hero-tag::before{content:'';width:30px;height:1px;background:#c9a82c}
+    .hero h1{font-size:clamp(2.2rem,4vw,3.4rem);font-weight:700;line-height:1.15;margin-bottom:20px;color:#f0f0f0;letter-spacing:-0.5px}
+    .hero h1 em{font-style:normal;color:#c9a82c}
+    .hero-sub{font-size:1rem;color:rgba(232,232,232,0.55);line-height:1.75;margin-bottom:36px;max-width:460px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+    .btn-primary{background:#c9a82c;color:#060f1e;padding:13px 28px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.25s;letter-spacing:0.3px}
+    .btn-primary:hover{background:#b8960c;transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:#e8e8e8;padding:13px 28px;font-weight:600;font-size:0.95rem;text-decoration:none;border:1px solid rgba(232,232,232,0.25);transition:all 0.25s}
+    .btn-outline:hover{border-color:#c9a82c;color:#c9a82c;transform:translateY(-2px)}
+    .hero-right{display:flex;flex-direction:column;gap:16px}
+    .stat-card{background:rgba(201,168,44,0.05);border:1px solid rgba(201,168,44,0.15);padding:20px 24px;display:flex;align-items:center;gap:18px}
+    .stat-num{font-size:2rem;font-weight:700;color:#c9a82c;min-width:80px}
+    .stat-label{font-size:0.88rem;color:rgba(232,232,232,0.6);line-height:1.5}
+
+    .services{padding:90px 5%;background:#080e1c}
+    .services-inner{max-width:1200px;margin:0 auto}
+    .section-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:52px;gap:40px;flex-wrap:wrap}
+    .section-label{font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#c9a82c;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .section-label::before{content:'';width:24px;height:1px;background:#c9a82c}
+    .section-title{font-size:clamp(1.7rem,2.8vw,2.4rem);font-weight:700;letter-spacing:-0.3px;color:#f0f0f0}
+    .section-right{max-width:380px}
+    .section-sub{color:rgba(232,232,232,0.5);font-size:0.92rem;line-height:1.75}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px}
+    .card{background:#0a1220;border:1px solid rgba(201,168,44,0.08);padding:36px 28px;transition:all 0.3s;position:relative}
+    .card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:#c9a82c;transform:scaleX(0);transition:transform 0.3s;transform-origin:left}
+    .card:hover::after{transform:scaleX(1)}
+    .card:hover{background:#0d1628}
+    .card-num{font-size:0.75rem;font-weight:600;color:rgba(201,168,44,0.4);letter-spacing:2px;margin-bottom:16px}
+    .card-icon{font-size:1.8rem;margin-bottom:16px}
+    .card h3{font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#f0f0f0}
+    .card p{color:rgba(232,232,232,0.5);font-size:0.9rem;line-height:1.7;margin-bottom:20px}
+    .card-link{color:#c9a82c;font-size:0.85rem;font-weight:600;text-decoration:none;letter-spacing:0.5px;transition:gap 0.2s;display:inline-flex;align-items:center;gap:6px}
+    .card-link:hover{gap:10px}
+
+    footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(201,168,44,0.1);color:rgba(232,232,232,0.3);font-size:0.82rem}
+    footer strong{color:#c9a82c}
+  </style>
+</head>
+<body>
+
+<div class="sk-badge">Modelo criado por <a href="../index.html">SK Services</a> · <a href="../index.html#templates">← Ver todos os modelos</a></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Ferreira <span>&</span> Associados</div>
+    <ul class="nav-links">
+      <li><a href="#">Áreas de Atuação</a></li>
+      <li><a href="#">Nossa Equipe</a></li>
+      <li><a href="#">Casos</a></li>
+      <li><a href="#">Contato</a></li>
+      <li><a href="#" class="nav-cta">Consulta Gratuita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-line"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-tag">Escritório de Advocacia</div>
+      <h1>Soluções jurídicas para<br>proteger o que <em>é seu</em></h1>
+      <p class="hero-sub">Combinamos décadas de experiência com estratégias jurídicas modernas para defender seus direitos com eficiência, ética e comprometimento total.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-primary">Consulta Gratuita</a>
+        <a href="#" class="btn-outline">Nossa Equipe</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="stat-card">
+        <div class="stat-num">25</div>
+        <div class="stat-label"><strong style="color:#e8e8e8">Anos de experiência</strong><br>Atuando nas mais diversas áreas do direito</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3k+</div>
+        <div class="stat-label"><strong style="color:#e8e8e8">Casos concluídos</strong><br>Com resultados favoráveis para nossos clientes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">98%</div>
+        <div class="stat-label"><strong style="color:#e8e8e8">Índice de êxito</strong><br>Um dos maiores do setor na região</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="services-inner">
+    <div class="section-header">
+      <div>
+        <div class="section-label">Áreas de Atuação</div>
+        <h2 class="section-title">Como podemos<br>te ajudar</h2>
+      </div>
+      <div class="section-right">
+        <p class="section-sub">Atuamos nas principais áreas do direito com equipes especializadas e totalmente dedicadas a cada caso, grande ou pequeno.</p>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-num">01</div>
+        <div class="card-icon">⚖️</div>
+        <h3>Direito Civil</h3>
+        <p>Contratos, divórcios, inventários, indenizações e disputas patrimoniais. Protegemos seus bens e seus direitos em todas as fases da vida.</p>
+        <a href="#" class="card-link">Ver área →</a>
+      </div>
+      <div class="card">
+        <div class="card-num">02</div>
+        <div class="card-icon">🏛️</div>
+        <h3>Direito Trabalhista</h3>
+        <p>Defesa de trabalhadores e empresas em reclamações trabalhistas, rescisões, assédio moral e questões previdenciárias.</p>
+        <a href="#" class="card-link">Ver área →</a>
+      </div>
+      <div class="card">
+        <div class="card-num">03</div>
+        <div class="card-icon">📋</div>
+        <h3>Direito Empresarial</h3>
+        <p>Assessoria jurídica completa para empresas: contratos, fusões, compliance, recuperação judicial e proteção de propriedade intelectual.</p>
+        <a href="#" class="card-link">Ver área →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <strong>Ferreira & Associados</strong>. Defendemos seus direitos. · Template por SK Services</p>
+</footer>
+
+</body>
+</html>
