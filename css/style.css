@@ -2135,17 +2135,34 @@ body.light .tpl-tab { border-color:rgba(0,0,0,0.12); color:#64748b; }
 
 /* ── Template card actions (Visualizar + Solicitar) ── */
 .tpl-actions {
-  display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+  margin-top: 6px;
 }
 .tpl-view {
-  display: inline-flex; align-items: center;
-  padding: 7px 14px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 8px 14px;
   background: rgba(0,212,255,0.07);
   border: 1px solid rgba(0,212,255,0.22);
-  border-radius: 7px;
-  font-size: 0.79rem; font-weight: 600; color: var(--cyan);
+  border-radius: 8px;
+  font-size: 0.78rem; font-weight: 600; color: var(--cyan);
+  white-space: nowrap;
   transition: background 0.2s, transform 0.2s;
 }
 .tpl-view:hover { background: rgba(0,212,255,0.15); transform: translateY(-1px); }
-.tpl-actions .tpl-btn { margin-top: 0; font-size: 0.79rem; }
+.tpl-actions .tpl-btn {
+  margin-top: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 8px 12px;
+  font-size: 0.78rem; font-weight: 600;
+  background: rgba(0,212,255,0.05);
+  border: 1px solid rgba(0,212,255,0.18);
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.tpl-actions .tpl-btn:hover { background: rgba(139,92,246,0.1); color: var(--purple); transform: translateY(-1px); }
 body.light .tpl-view { background: rgba(0,150,200,0.06); }
+body.light .tpl-actions .tpl-btn { background: rgba(0,150,200,0.04); }
