@@ -1261,6 +1261,72 @@ input, textarea, select {
   border: 1px solid rgba(0,212,255,0.12);
 }
 .feat-upgrade strong { color: var(--cyan); }
+/* ── Pricing Sub-sections ── */
+.pricing-sub { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
+.pricing-sub-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+.pricing-sub-title { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+.pricing-sub-desc { font-size: 0.82rem; color: var(--text-muted); }
+
+/* ── Mini Cards ── */
+.pricing-mini-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
+.pricing-mini-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 14px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.pricing-mini-card:hover { border-color: var(--border-h); transform: translateY(-2px); }
+.pmc-icon { font-size: 1.5rem; }
+.pricing-mini-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--text); margin: 0; }
+.pricing-mini-card p { font-size: 0.76rem; color: var(--text-muted); margin: 0; line-height: 1.4; flex: 1; }
+.pmc-price { font-size: 0.88rem; font-weight: 700; color: var(--cyan); font-family: var(--ff-mono); }
+.pmc-btn { font-size: 0.75rem; color: var(--cyan); font-weight: 600; margin-top: 4px; transition: opacity 0.2s; }
+.pmc-btn:hover { opacity: 0.75; }
+
+/* ── Avulso Items ── */
+.pricing-avulso-grid { display: flex; flex-direction: column; gap: 10px; }
+.pricing-avulso-item {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px 20px;
+  transition: border-color 0.2s;
+}
+.pricing-avulso-item:hover { border-color: var(--border-h); }
+.pai-icon { font-size: 1.5rem; flex-shrink: 0; }
+.pai-info { flex: 1; }
+.pai-info h4 { font-size: 0.88rem; font-weight: 600; color: var(--text); margin: 0 0 3px; }
+.pai-info p { font-size: 0.76rem; color: var(--text-muted); margin: 0; line-height: 1.4; }
+.pai-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
+.pai-price { font-size: 0.95rem; font-weight: 700; color: var(--cyan); font-family: var(--ff-mono); white-space: nowrap; }
+
+/* ── Combo Cards ── */
+.pricing-combo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.pricing-combo-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 24px;
+  display: flex; flex-direction: column; gap: 12px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.pricing-combo-card:hover { border-color: var(--border-h); transform: translateY(-2px); }
+.pcc-tag {
+  display: inline-block;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em;
+  padding: 4px 10px; border-radius: 6px;
+  background: rgba(0,212,255,0.1); color: var(--cyan); border: 1px solid rgba(0,212,255,0.25);
+}
+.pricing-combo-card h4 { font-size: 1rem; font-weight: 700; color: var(--text); margin: 0; }
+.pcc-desc { font-size: 0.8rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+.pcc-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.pcc-list li { font-size: 0.82rem; color: var(--text-muted); }
+.pcc-price { font-size: 1.2rem; font-weight: 700; color: var(--cyan); font-family: var(--ff-mono); margin-top: auto; }
+
+@media (max-width: 600px) {
+  .pricing-avulso-item { flex-wrap: wrap; }
+  .pai-right { flex-direction: row; align-items: center; width: 100%; justify-content: space-between; }
+}
+
 .pricing-note {
   text-align: center;
   font-size: 0.82rem;
@@ -1814,7 +1880,7 @@ body.light .pm-modal { background: #fff; }
   font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
   letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 12px;
 }
-.quote-types { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.quote-types { display: grid; grid-template-columns: repeat(auto-fill, minmax(115px, 1fr)); gap: 10px; }
 .quote-type {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
