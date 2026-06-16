@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabor & Arte – Gastronomia com alma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Space Grotesk',sans-serif;background:#100500;color:#f5e6d0;overflow-x:hidden}
+
+    .sk-badge{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,0.9);color:#ccc;text-align:center;padding:8px;font-size:0.75rem;z-index:9999}
+    .sk-badge a{color:#f59e0b;text-decoration:none;font-weight:600}
+    .sk-badge a:hover{text-decoration:underline}
+
+    nav{position:fixed;top:32px;left:0;right:0;z-index:1000;padding:0 5%}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:16px 28px;background:rgba(16,5,0,0.88);backdrop-filter:blur(14px);border-radius:14px;border:1px solid rgba(245,158,11,0.18)}
+    .logo{font-size:1.4rem;font-weight:700;letter-spacing:-0.5px;color:#f5e6d0}
+    .logo em{font-style:normal;color:#f59e0b}
+    .nav-links{display:flex;gap:28px;list-style:none}
+    .nav-links a{color:rgba(245,230,208,0.65);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s}
+    .nav-links a:hover{color:#f59e0b}
+    .nav-cta{background:#f59e0b;color:#100500!important;padding:10px 22px;border-radius:8px;font-weight:700!important;transition:background 0.2s!important}
+    .nav-cta:hover{background:#d97706!important}
+
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(217,119,6,0.14) 0%,rgba(245,158,11,0.04) 50%,transparent 70%)}
+    .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:300px;background:linear-gradient(to top,#100500,transparent);pointer-events:none}
+    .hero-content{position:relative;z-index:1;max-width:760px;margin:0 auto}
+    .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);color:#f59e0b;padding:6px 18px;border-radius:20px;font-size:0.78rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px}
+    .hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700;line-height:1.15;margin-bottom:20px;letter-spacing:-0.5px}
+    .hero h1 em{font-style:normal;color:#f59e0b}
+    .hero-sub{font-size:1.1rem;color:rgba(245,230,208,0.6);max-width:520px;margin:0 auto 36px;line-height:1.75}
+    .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:52px}
+    .btn-primary{background:#f59e0b;color:#100500;padding:14px 32px;border-radius:10px;font-weight:700;font-size:1rem;text-decoration:none;transition:all 0.25s}
+    .btn-primary:hover{background:#d97706;transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:#f5e6d0;padding:14px 32px;border-radius:10px;font-weight:600;font-size:1rem;text-decoration:none;border:2px solid rgba(245,230,208,0.2);transition:all 0.25s}
+    .btn-outline:hover{border-color:#f59e0b;color:#f59e0b;transform:translateY(-2px)}
+    .stats-row{display:flex;gap:0;justify-content:center;flex-wrap:wrap;border:1px solid rgba(245,158,11,0.15);border-radius:12px;overflow:hidden;max-width:580px;margin:0 auto}
+    .stat{flex:1;min-width:120px;text-align:center;padding:18px 12px;border-right:1px solid rgba(245,158,11,0.12)}
+    .stat:last-child{border-right:none}
+    .stat-num{font-size:1.5rem;font-weight:700;color:#f59e0b}
+    .stat-label{font-size:0.78rem;color:rgba(245,230,208,0.45);margin-top:4px}
+
+    .services{padding:90px 5%;background:#0c0400}
+    .services-inner{max-width:1200px;margin:0 auto}
+    .section-label{font-size:0.78rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#f59e0b;margin-bottom:12px}
+    .section-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;letter-spacing:-0.3px;margin-bottom:14px;color:#f5e6d0}
+    .section-sub{color:rgba(245,230,208,0.45);font-size:0.95rem;max-width:460px;line-height:1.75;margin-bottom:52px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+    .card{background:rgba(255,255,255,0.03);border:1px solid rgba(245,158,11,0.12);border-radius:16px;padding:36px 28px;transition:all 0.3s;position:relative;overflow:hidden}
+    .card:hover{border-color:rgba(245,158,11,0.3);transform:translateY(-4px)}
+    .card-img{width:100%;height:140px;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;font-size:3rem;background:rgba(245,158,11,0.06)}
+    .card h3{font-size:1.2rem;font-weight:700;margin-bottom:10px;color:#f5e6d0}
+    .card p{color:rgba(245,230,208,0.5);font-size:0.9rem;line-height:1.7;margin-bottom:16px}
+    .card-detail{display:flex;align-items:center;gap:8px;color:#f59e0b;font-size:0.85rem;font-weight:500}
+
+    footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(245,158,11,0.1);color:rgba(245,230,208,0.3);font-size:0.82rem}
+    footer strong{color:#f59e0b}
+  </style>
+</head>
+<body>
+
+<div class="sk-badge">Modelo criado por <a href="../index.html">SK Services</a> · <a href="../index.html#templates">← Ver todos os modelos</a></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo"><em>Sabor</em> & Arte</div>
+    <ul class="nav-links">
+      <li><a href="#">Cardápio</a></li>
+      <li><a href="#">Reservas</a></li>
+      <li><a href="#">Delivery</a></li>
+      <li><a href="#">Eventos</a></li>
+      <li><a href="#" class="nav-cta">Fazer Reserva</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-tag">🍽️ Restaurante & Bistrô</span>
+    <h1>Uma experiência<br>gastronômica <em>inesquecível</em></h1>
+    <p class="hero-sub">Ingredientes selecionados, receitas autorais e um ambiente que transforma cada refeição em uma celebração. Venha viver a gastronomia com alma.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-primary">Ver Cardápio</a>
+      <a href="#" class="btn-outline">Fazer Reserva</a>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num">15 anos</div><div class="stat-label">Tradição</div></div>
+      <div class="stat"><div class="stat-num">4.9★</div><div class="stat-label">Avaliação</div></div>
+      <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Pratos</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="services-inner">
+    <p class="section-label">Nossas Experiências</p>
+    <h2 class="section-title">Sabores para cada<br>momento especial</h2>
+    <p class="section-sub">Do almoço do dia a dia ao jantar mais especial, temos a opção perfeita para você.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-img">🥗</div>
+        <h3>Almoço Executivo</h3>
+        <p>Refeições completas e saborosas para o seu dia a dia. Cardápio rotativo com pratos frescos, saladas e sobremesas. Segunda a sexta.</p>
+        <div class="card-detail">⏰ Seg–Sex · 12h às 15h</div>
+      </div>
+      <div class="card">
+        <div class="card-img">🕯️</div>
+        <h3>Jantares Especiais</h3>
+        <p>Menu degustação com harmonização de vinhos, ambiente intimista e serviço exclusivo. Perfeito para celebrações e ocasiões únicas.</p>
+        <div class="card-detail">⏰ Ter–Sáb · 19h às 23h</div>
+      </div>
+      <div class="card">
+        <div class="card-img">🛵</div>
+        <h3>Delivery Gourmet</h3>
+        <p>Os sabores do nosso restaurante chegam até você. Embalagens térmicas premium que preservam o sabor, textura e apresentação dos pratos.</p>
+        <div class="card-detail">🚀 Entrega em até 45 min</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <strong>Sabor & Arte</strong>. Gastronomia com alma. · Template por SK Services</p>
+</footer>
+
+</body>
+</html>
