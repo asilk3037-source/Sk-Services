@@ -1,0 +1,68 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="gclinica" cx="50%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#0d9488" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#f0fdf9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="nbclinica" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0fdf9" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#f0fdf9" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="420" fill="#f0fdf9"/>
+  <!-- Hero gradient bloom -->
+  <rect width="800" height="290" fill="url(#gclinica)"/>
+
+  <!-- Nav bar -->
+  <rect width="800" height="46" fill="rgba(0,0,0,0.06)"/>
+  <!-- Logo block -->
+  <rect x="26" y="15" width="72" height="14" rx="4" fill="#0d9488" opacity="0.9"/>
+  <!-- Nav items -->
+  <rect x="480" y="18" width="44" height="8" rx="3" fill="rgba(0,0,0,0.18)"/>
+  <rect x="538" y="18" width="44" height="8" rx="3" fill="rgba(0,0,0,0.18)"/>
+  <rect x="596" y="18" width="44" height="8" rx="3" fill="rgba(0,0,0,0.18)"/>
+  <!-- CTA btn in nav -->
+  <rect x="656" y="12" width="78" height="24" rx="6" fill="#0d9488"/>
+
+  <!-- Hero: tag pill -->
+  <rect x="276" y="68" width="248" height="18" rx="9" fill="rgba(13,148,136,0.15)" stroke="#0d9488" stroke-width="0.8" stroke-opacity="0.5"/>
+  <!-- H1 line 1 -->
+  <rect x="140" y="104" width="520" height="24" rx="5" fill="rgba(0,0,0,0.75)"/>
+  <!-- H1 line 2 (accent) -->
+  <rect x="185" y="136" width="430" height="24" rx="5" fill="#0d9488" opacity="0.85"/>
+  <!-- Subtitle -->
+  <rect x="220" y="178" width="360" height="9" rx="3" fill="rgba(0,0,0,0.35)"/>
+  <rect x="245" y="194" width="310" height="9" rx="3" fill="rgba(0,0,0,0.18)"/>
+  <!-- Buttons -->
+  <rect x="220" y="220" width="148" height="34" rx="9" fill="#0d9488"/>
+  <rect x="380" y="220" width="130" height="34" rx="9" fill="transparent" stroke="rgba(0,0,0,0.35)" stroke-width="1.5"/>
+
+  <!-- Stats strip -->
+  <rect y="275" width="800" height="48" fill="rgba(13,148,136,0.15)"/>
+  <rect x="108" y="288" width="60" height="12" rx="3" fill="#0d9488" opacity="0.85"/>
+  <rect x="108" y="305" width="80" height="7" rx="2" fill="rgba(0,0,0,0.18)"/>
+  <rect x="320" y="288" width="60" height="12" rx="3" fill="#0d9488" opacity="0.85"/>
+  <rect x="320" y="305" width="80" height="7" rx="2" fill="rgba(0,0,0,0.18)"/>
+  <rect x="532" y="288" width="60" height="12" rx="3" fill="#0d9488" opacity="0.85"/>
+  <rect x="532" y="305" width="80" height="7" rx="2" fill="rgba(0,0,0,0.18)"/>
+
+  <!-- Cards section -->
+  <rect y="323" width="800" height="97" fill="rgba(0,0,0,0.06)"/>
+  <!-- Card 1 -->
+  <rect x="22" y="336" width="234" height="72" rx="10" fill="rgba(0,0,0,0.04)" stroke="rgba(13,148,136,0.25)" stroke-width="0.8"/>
+  <rect x="36" y="350" width="28" height="28" rx="7" fill="rgba(13,148,136,0.15)"/>
+  <rect x="74" y="355" width="90" height="9" rx="2" fill="rgba(0,0,0,0.75)" opacity="0.7"/>
+  <rect x="36" y="388" width="170" height="7" rx="2" fill="rgba(0,0,0,0.18)"/>
+  <!-- Card 2 -->
+  <rect x="282" y="336" width="236" height="72" rx="10" fill="rgba(0,0,0,0.04)" stroke="rgba(13,148,136,0.25)" stroke-width="0.8"/>
+  <rect x="296" y="350" width="28" height="28" rx="7" fill="rgba(13,148,136,0.15)"/>
+  <rect x="334" y="355" width="90" height="9" rx="2" fill="rgba(0,0,0,0.75)" opacity="0.7"/>
+  <rect x="296" y="388" width="170" height="7" rx="2" fill="rgba(0,0,0,0.18)"/>
+  <!-- Card 3 -->
+  <rect x="542" y="336" width="236" height="72" rx="10" fill="rgba(0,0,0,0.04)" stroke="rgba(13,148,136,0.25)" stroke-width="0.8"/>
+  <rect x="556" y="350" width="28" height="28" rx="7" fill="rgba(13,148,136,0.15)"/>
+  <rect x="594" y="355" width="90" height="9" rx="2" fill="rgba(0,0,0,0.75)" opacity="0.7"/>
+  <rect x="556" y="388" width="170" height="7" rx="2" fill="rgba(0,0,0,0.18)"/>
+</svg>

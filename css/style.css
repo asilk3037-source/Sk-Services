@@ -649,6 +649,7 @@ input, textarea, select {
   white-space: nowrap;
 }
 .browser-body { height: 166px; overflow: hidden; padding: 0; }
+.tpl-thumb { width: 100%; height: 166px; display: block; object-fit: cover; object-position: top; border-radius: 0; }
 
 /* Mock content for preview */
 .mock-nav {
