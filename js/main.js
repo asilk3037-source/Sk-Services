@@ -284,7 +284,7 @@
     ].filter(Boolean).join('\n');
 
     window.open(
-      `https://wa.me/5531999999999?text=${encodeURIComponent(text)}`,
+      `https://wa.me/5531992914959?text=${encodeURIComponent(text)}`,
       '_blank'
     );
   });
