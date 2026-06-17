@@ -300,6 +300,42 @@
 })();
 
 
+/* ── Diagnóstico Gratuito form → WhatsApp ── */
+(function initDiagForm() {
+  const form = document.getElementById('diagForm');
+  if (!form) return;
+
+  const bizLabel = {
+    loja: 'Loja física / e-commerce',
+    servicos: 'Prestação de serviços',
+    saude: 'Clínica / saúde',
+    alimentacao: 'Restaurante / alimentação',
+    imoveis: 'Imóveis',
+    outro: 'Outro'
+  };
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = form.querySelector('[name="dname"]').value.trim();
+    const site = form.querySelector('[name="dsite"]').value.trim();
+    const biz  = form.querySelector('[name="dbiz"]').value;
+
+    const text = [
+      `Olá! Vi a oferta de diagnóstico gratuito no portfólio SK Services 🎁`,
+      ``,
+      `*Nome:* ${name}`,
+      site ? `*Site/Instagram:* ${site}` : `*Site/Instagram:* ainda não tenho`,
+      biz ? `*Tipo de negócio:* ${bizLabel[biz] || biz}` : ''
+    ].filter(Boolean).join('\n');
+
+    window.open(
+      `https://wa.me/5531992914959?text=${encodeURIComponent(text)}`,
+      '_blank'
+    );
+  });
+})();
+
+
 /* ── Smooth scroll for anchor links ── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {

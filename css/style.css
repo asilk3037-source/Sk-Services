@@ -975,6 +975,59 @@ input, textarea, select {
 }
 .btn-submit:active { transform: translateY(0); }
 
+/* ── Diagnóstico Gratuito ── */
+#diagnostico {
+  padding: 100px 0;
+  background: linear-gradient(180deg, var(--bg-s) 0%, var(--bg) 100%);
+}
+.diag-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.diag-desc {
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  margin: 16px 0 24px;
+  max-width: 480px;
+}
+.diag-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.diag-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.92rem;
+  color: var(--text);
+}
+.diag-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: rgba(16,185,129,0.12);
+  color: var(--green);
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.diag-form { padding: 32px; }
+.diag-disclaimer {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
 /* ── Footer ── */
 #footer {
   padding: 64px 0 32px;
@@ -2110,12 +2163,15 @@ body.light .tpl-tab { border-color:rgba(0,0,0,0.12); color:#64748b; }
   .tpl-tabs { gap: 6px; }
   .tpl-tab { padding: 6px 14px; font-size: 0.8rem; }
   #templates { padding: 72px 0; }
+  #diagnostico { padding: 72px 0; }
+  .diag-form { padding: 22px; }
 }
 
 /* ── General alignment fixes ── */
 /* Ensure contact grid stacks cleanly on tablets */
 @media (max-width: 820px) {
   .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+  .diag-grid { grid-template-columns: 1fr; gap: 36px; }
 }
 /* Pricing grid 2-col on medium screens */
 @media (max-width: 900px) {
